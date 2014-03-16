@@ -1,0 +1,31 @@
+PODS:
+  - KeychainItemWrapper (1.2)
+  - MBProgressHUD (0.8)
+  - MKNetworkKit (0.87):
+    - Reachability (~> 3.1.0)
+  - Reachability (3.1.1)
+  - RNCryptor (2.2)
+  - Toast (2.2)
+  - TYMProgressBarView (0.2.0)
+  - ViewDeck (2.3.1)
+
+DEPENDENCIES:
+  - KeychainItemWrapper
+  - MBProgressHUD
+  - MKNetworkKit
+  - RNCryptor
+  - Toast
+  - TYMProgressBarView
+  - ViewDeck
+
+SPEC CHECKSUMS:
+  KeychainItemWrapper: b532e85de8792ea70dad237e7ead90993af763cf
+  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
+  MKNetworkKit: f174100f92473012138b6b1c3040266af8d43a14
+  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
+  RNCryptor: 1420380792b33758d2414cf37af160ea2495e15c
+  Toast: 4123a86be86b619e118a134510ff6d00d9bd47e0
+  TYMProgressBarView: 258323aacf3e9820e29f8c5cb83be0c5a4c241df
+  ViewDeck: 2cdc67c4b41a10cafc7556b982f028409e33604d
+
+COCOAPODS: 0.29.0
