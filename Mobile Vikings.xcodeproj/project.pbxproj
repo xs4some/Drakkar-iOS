@@ -12,7 +12,7 @@
 		62418822187F265300B3797D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62418821187F265300B3797D /* UIKit.framework */; };
 		62418828187F265300B3797D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62418826187F265300B3797D /* InfoPlist.strings */; };
 		6241882A187F265300B3797D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62418829187F265300B3797D /* main.m */; };
-		6241882E187F265300B3797D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6241882D187F265300B3797D /* AppDelegate.m */; };
+		6241882E187F265300B3797D /* MVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6241882D187F265300B3797D /* MVAppDelegate.m */; };
 		62418831187F265300B3797D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6241882F187F265300B3797D /* Main.storyboard */; };
 		62418834187F265300B3797D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62418833187F265300B3797D /* ViewController.m */; };
 		62418836187F265300B3797D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62418835187F265300B3797D /* Images.xcassets */; };
@@ -22,7 +22,7 @@
 		62418847187F265300B3797D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62418845187F265300B3797D /* InfoPlist.strings */; };
 		62418849187F265300B3797D /* Mobile_VikingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62418848187F265300B3797D /* Mobile_VikingsTests.m */; };
 		62E6BB461885B63E0076C3B2 /* MVLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6BB451885B63E0076C3B2 /* MVLoginService.m */; };
-		62E6BC1118865E2D0076C3B2 /* BalanceService.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6BC1018865E2D0076C3B2 /* BalanceService.m */; };
+		62E6BC1118865E2D0076C3B2 /* MVBalanceService.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6BC1018865E2D0076C3B2 /* MVBalanceService.m */; };
 		62E6BC14188666530076C3B2 /* MVBalance.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6BC13188666530076C3B2 /* MVBalance.m */; };
 		62E6BC1D1887D11B0076C3B2 /* UIColor+RGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E6BC1C1887D11B0076C3B2 /* UIColor+RGB.m */; };
 		C86E969918C26D6200EDDDA1 /* MVUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = C86E969818C26D6200EDDDA1 /* MVUserData.m */; };
@@ -55,8 +55,8 @@
 		62418827187F265300B3797D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		62418829187F265300B3797D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6241882B187F265300B3797D /* Mobile Vikings-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobile Vikings-Prefix.pch"; sourceTree = "<group>"; };
-		6241882C187F265300B3797D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		6241882D187F265300B3797D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6241882C187F265300B3797D /* MVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVAppDelegate.h; sourceTree = "<group>"; };
+		6241882D187F265300B3797D /* MVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVAppDelegate.m; sourceTree = "<group>"; };
 		62418830187F265300B3797D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62418832187F265300B3797D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		62418833187F265300B3797D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -68,8 +68,8 @@
 		62418848187F265300B3797D /* Mobile_VikingsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mobile_VikingsTests.m; sourceTree = "<group>"; };
 		62E6BB441885B63E0076C3B2 /* MVLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLoginService.h; sourceTree = "<group>"; };
 		62E6BB451885B63E0076C3B2 /* MVLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLoginService.m; sourceTree = "<group>"; };
-		62E6BC0F18865E2D0076C3B2 /* BalanceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceService.h; sourceTree = "<group>"; };
-		62E6BC1018865E2D0076C3B2 /* BalanceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceService.m; sourceTree = "<group>"; };
+		62E6BC0F18865E2D0076C3B2 /* MVBalanceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVBalanceService.h; sourceTree = "<group>"; };
+		62E6BC1018865E2D0076C3B2 /* MVBalanceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVBalanceService.m; sourceTree = "<group>"; };
 		62E6BC12188666530076C3B2 /* MVBalance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVBalance.h; sourceTree = "<group>"; };
 		62E6BC13188666530076C3B2 /* MVBalance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVBalance.m; sourceTree = "<group>"; };
 		62E6BC1B1887D11B0076C3B2 /* UIColor+RGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+RGB.h"; path = "Classes/Helper/UIColor+RGB.h"; sourceTree = "<group>"; };
@@ -157,8 +157,8 @@
 				62E6BB411885B5C70076C3B2 /* Views */,
 				62E6BB421885B5C70076C3B2 /* Model */,
 				62E6BB431885B5C70076C3B2 /* Service */,
-				6241882C187F265300B3797D /* AppDelegate.h */,
-				6241882D187F265300B3797D /* AppDelegate.m */,
+				6241882C187F265300B3797D /* MVAppDelegate.h */,
+				6241882D187F265300B3797D /* MVAppDelegate.m */,
 				6241882F187F265300B3797D /* Main.storyboard */,
 				62418832187F265300B3797D /* ViewController.h */,
 				62418833187F265300B3797D /* ViewController.m */,
@@ -232,8 +232,8 @@
 				C86E96AC18C3442600EDDDA1 /* MVRegisterService.m */,
 				62E6BB441885B63E0076C3B2 /* MVLoginService.h */,
 				62E6BB451885B63E0076C3B2 /* MVLoginService.m */,
-				62E6BC0F18865E2D0076C3B2 /* BalanceService.h */,
-				62E6BC1018865E2D0076C3B2 /* BalanceService.m */,
+				62E6BC0F18865E2D0076C3B2 /* MVBalanceService.h */,
+				62E6BC1018865E2D0076C3B2 /* MVBalanceService.m */,
 			);
 			name = Service;
 			path = Classes/Service;
@@ -405,14 +405,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C86E96B018C3C09100EDDDA1 /* MVTokenService.m in Sources */,
-				62E6BC1118865E2D0076C3B2 /* BalanceService.m in Sources */,
+				62E6BC1118865E2D0076C3B2 /* MVBalanceService.m in Sources */,
 				62418834187F265300B3797D /* ViewController.m in Sources */,
 				C86E96A218C27AED00EDDDA1 /* MVLoginCell.m in Sources */,
 				C86E96B718C706B600EDDDA1 /* MVPinViewController.m in Sources */,
 				62E6BC1D1887D11B0076C3B2 /* UIColor+RGB.m in Sources */,
 				62E6BC14188666530076C3B2 /* MVBalance.m in Sources */,
 				62E6BB461885B63E0076C3B2 /* MVLoginService.m in Sources */,
-				6241882E187F265300B3797D /* AppDelegate.m in Sources */,
+				6241882E187F265300B3797D /* MVAppDelegate.m in Sources */,
 				C86E96A918C2805000EDDDA1 /* MVActivationViewController.m in Sources */,
 				C86E969918C26D6200EDDDA1 /* MVUserData.m in Sources */,
 				C86E96AD18C3442600EDDDA1 /* MVRegisterService.m in Sources */,

@@ -1,16 +1,16 @@
 //
-//  AppDelegate.m
+//  MVAppDelegate.m
 //  Mobile Vikings
 //
 //  Created by Hendrik Bruinsma on 09-01-14.
 //  Copyright (c) 2014 XS4some. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "MVAppDelegate.h"
 #import <KeychainItemWrapper/KeychainItemWrapper.h>
 #import "MVActivationViewController.h"
 
-@implementation AppDelegate
+@implementation MVAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -20,12 +20,19 @@
     
     self.engine = [[MKNetworkEngine alloc] initWithHostName:nil customHeaderFields:nil];
     [self.engine useCache];
+
+#if TARGET_IPHONE_SIMULATOR
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    
-    // show activation screen first, if the app hasn't been activated yet.
+    if ([userDefaults objectForKey:@"encryptedData"] == nil) {
+#else
+        
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"MobileVikingsNL" accessGroup:nil];
-    
+        
     if ([keychain objectForKey:@"encryptedData"] == nil) {
+
+#endif
+    
         MVActivationViewController *activationController = [[MVActivationViewController alloc] initWithNibName:@"MVActivationViewController" bundle:[NSBundle mainBundle]];
         
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:activationController];

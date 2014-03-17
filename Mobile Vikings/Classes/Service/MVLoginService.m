@@ -7,7 +7,7 @@
 //
 
 #import "MVLoginService.h"
-#import "AppDelegate.h"
+#import "MVAppDelegate.h"
 #import "MVUserData.h"
 
 #define kLoginUrl @"https://mobilevikings.com/nld/nl/account/login/?"

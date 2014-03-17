@@ -1,5 +1,5 @@
 //
-//  BalanceService.m
+//  MVBalanceService.m
 //  Mobile Vikings
 //
 //  Created by Hendrik Bruinsma on 15-01-14.
@@ -8,10 +8,10 @@
 
 #define kBalanceUrl @"https://mobilevikings.com/nld/nl/mysims/sim/736/balance/json/"
 
-#import "BalanceService.h"
-#import "AppDelegate.h"
+#import "MVBalanceService.h"
+#import "MVAppDelegate.h"
 
-@implementation BalanceService
+@implementation MVBalanceService
 
 - (id)initServiceWithToken:(NSString *)token {
     self = [super initWithURLString:kBalanceUrl params:nil httpMethod:@"GET"];

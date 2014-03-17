@@ -1,5 +1,5 @@
 //
-//  BalanceService.h
+//  MVBalanceService.h
 //  Mobile Vikings
 //
 //  Created by Hendrik Bruinsma on 15-01-14.
@@ -8,7 +8,7 @@
 
 #import "MKNetworkOperation.h"
 
-@interface BalanceService : MKNetworkOperation
+@interface MVBalanceService : MKNetworkOperation
 
 - (id)initServiceWithToken:(NSString *)token;
 - (void)balanceCompletionBlock:(void(^)(NSDictionary *balance))completionBlock onError:(MKNKErrorBlock)errorBlock;

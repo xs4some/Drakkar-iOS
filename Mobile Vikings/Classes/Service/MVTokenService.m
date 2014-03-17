@@ -7,7 +7,7 @@
 //
 
 #import "MVTokenService.h"
-#import "AppDelegate.h"
+#import "MVAppDelegate.h"
 
 #define kLoginUrl @"https://mobilevikings.com/nld/nl/account/login/?"
 #define kErrorDomain @"https://www.mobilevikings.com/"

@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "MVTokenService.h"
 #import "MVLoginService.h"
-#import "BalanceService.h"
+#import "MVBalanceService.h"
 #import "MVBalance.h"
 #import "UIColor+RGB.h"
 #import <TYMProgressBarView/TYMProgressBarView.h>
@@ -59,7 +59,7 @@
         
         [loginService loginCompletionBlock:^{
            
-            BalanceService *balanceService = [[BalanceService alloc] initServiceWithToken:token.value];
+            MVBalanceService *balanceService = [[MVBalanceService alloc] initServiceWithToken:token.value];
             
             [balanceService balanceCompletionBlock:^(NSDictionary *balance) {
                 self.balance = [[MVBalance alloc] initWithDictionary:balance];
