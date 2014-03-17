@@ -28,10 +28,9 @@
     
     NSDictionary *credentials = [MVUserData credentialsWithPassCode:passCode];
     
-#warning TODO: store credentials encrypted in Keychain
     NSDictionary *params = @{ @"csrfmiddlewaretoken" : token,
-                              @"username" : @"hbruinsma@xs4some.nl",
-                              @"password" : @"ge64yuh",
+                              @"username" : [credentials objectForKey:@"userName"],
+                              @"password" : [credentials objectForKey:@"passWord"],
                               @"next" : @"/nld/nl"};
     
     self = [super initWithURLString:kLoginUrl params:params httpMethod:@"POST"];
