@@ -13,55 +13,88 @@
 
 @implementation MVUserData
 
-
 + (NSDictionary *)credentialsWithPassCode:(NSString *)passCode andError:(NSError *__autoreleasing *)error {
 
-    NSData *encryptedData = nil;
+    NSData *encryptedUserName = nil;
+    NSData *encryptedPassWord = nil;
     
 #if TARGET_IPHONE_SIMULATOR
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    encryptedData = [userDefaults objectForKey:@"encryptedData"];
+    encryptedUserName = [userDefaults objectForKey:@"encryptedUserName"];
+    encryptedPassWord = [userDefaults objectForKey:@"encryptedPassWord"];
     
 #else
     
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"MobileVikingsNL" accessGroup:nil];
-    encryptedData = [keychain objectForKey:@"encryptedData"];
+    encryptedUserName = [keychain objectForKey:(__bridge id)kSecAttrAccount];
+    encryptedPassWord = [keychain objectForKey:(__bridge id)kSecValueData];
     
 #endif
     
-    NSData *data = [RNDecryptor decryptData:encryptedData
-                               withSettings:kRNCryptorAES256Settings
-                                   password:passCode
-                                      error:error];
+    NSData *decryptedUserName = [RNDecryptor decryptData:encryptedUserName
+                                            withSettings:kRNCryptorAES256Settings
+                                                password:passCode
+                                                   error:error];
     
-    NSDictionary *credentials = (NSDictionary *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSData *decryptedPassWord = [RNDecryptor decryptData:encryptedPassWord
+                                            withSettings:kRNCryptorAES256Settings
+                                                password:passCode
+                                                   error:error];
+    
+    NSDictionary *credentials = @{@"userName" : [NSKeyedUnarchiver unarchiveObjectWithData:decryptedUserName],
+                                  @"passWord" : [NSKeyedUnarchiver unarchiveObjectWithData:decryptedPassWord]};
 
     return credentials;
 }
 
-+ (BOOL)storeCredentials:(NSDictionary *)credentials withPassCode:(NSString *)passCode andError:(NSError *__autoreleasing *)error{
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:credentials];
-    NSData *encryptedData = [RNEncryptor encryptData:data
-                                        withSettings:kRNCryptorAES256Settings
-                                            password:passCode
-                                               error:error];
++ (BOOL)storeCredentials:(NSDictionary *)credentials withPassCode:(NSString *)passCode andError:(NSError *__autoreleasing *)error {
+    NSData *userNameData = [NSKeyedArchiver archivedDataWithRootObject:[credentials objectForKey:@"userName"]];
+    NSData *encryptedUserName = [RNEncryptor encryptData:userNameData
+                                            withSettings:kRNCryptorAES256Settings
+                                                password:passCode
+                                                   error:error];
+
+    NSData *passwordData = [NSKeyedArchiver archivedDataWithRootObject:[credentials objectForKey:@"passWord"]];
+    NSData *encryptedPassword = [RNEncryptor encryptData:passwordData
+                                            withSettings:kRNCryptorAES256Settings
+                                                password:passCode
+                                                   error:error];
     
 #if TARGET_IPHONE_SIMULATOR
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:encryptedData forKey:@"encryptedData"];
+    [userDefaults setObject:encryptedUserName forKey:@"encryptedUserName"];
+    [userDefaults setObject:encryptedPassword forKey:@"encryptedPassWord"];
+    
     [userDefaults synchronize];
 
 #else
     
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"MobileVikingsNL" accessGroup:nil];
-    [keychain setObject:encryptedData forKey:@"encryptedData"];
+    [keychain setObject:encryptedUserName forKey:(__bridge id)kSecAttrAccount];
+    [keychain setObject:encryptedPassword forKey:(__bridge id)kSecValueData];
     
 #endif
     
     return YES;
 }
 
+
++ (void)removeCredentials {
+#if TARGET_IPHONE_SIMULATOR
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:@"encryptedData"];
+    [userDefaults synchronize];
+    
+#else
+    
+    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"MobileVikingsNL" accessGroup:nil];
+    [keychain resetKeychainItem];
+    
+#endif
+
+}
 
 @end

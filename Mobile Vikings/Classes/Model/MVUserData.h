@@ -12,5 +12,6 @@
 
 + (NSDictionary *)credentialsWithPassCode:(NSString *)passCode andError:(NSError **)error;
 + (BOOL)storeCredentials:(NSDictionary *)credentials withPassCode:(NSString *)passCode andError:(NSError **)error;
++ (void)removeCredentials;
 
 @end
