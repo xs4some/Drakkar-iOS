@@ -119,8 +119,8 @@
     MVLoginCell *userNameCell = (MVLoginCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     MVLoginCell *passWordCell = (MVLoginCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
 
-    [userNameCell.textLabel resignFirstResponder];
-    [passWordCell.textLabel resignFirstResponder];
+    [userNameCell.textField resignFirstResponder];
+    [passWordCell.textField resignFirstResponder];
     
     NSString *userName = userNameCell.textField.text;
     NSString *passWord = passWordCell.textField.text;
@@ -141,13 +141,14 @@
         [hud  show:YES];
         MVTokenService *tokenService = [[MVTokenService alloc] initTokenService];
         
-        [tokenService tokenCompletionBlock:^(NSHTTPCookie *token) {
-            MVRegisterService *registerService = [[ MVRegisterService alloc] initServiceWithToken:token.value userName:userName passWord:passWord];
+        [tokenService tokenCompletionBlock:^(void) {
+            MVRegisterService *registerService = [[ MVRegisterService alloc] initServiceWithUserName:userName passWord:passWord];
             
             [registerService registerCompletionBlock:^{
                 MVPinViewController *pinViewController = [[MVPinViewController alloc] initWithNibName:@"MVPinViewController" bundle:[NSBundle mainBundle]];
                 pinViewController.userName = userName;
                 pinViewController.passWord = passWord;
+                pinViewController.pinScreenState = MVPinScreenStateActivate;
                 [self.navigationController pushViewController:pinViewController animated:YES];
                 
             } onError:^(NSError *error) {

@@ -11,7 +11,7 @@
 
 @interface MVLoginService : MKNetworkOperation
 
-- (id)initServiceWithToken:(NSString *)token passCode:(NSString *)passCode;
+- (id)initServiceWithPassCode:(NSString *)passCode andError:(NSError **)error;
 - (void)loginCompletionBlock:(void(^)(void))completionBlock onError:(MKNKErrorBlock)errorBlock;
 
 @end

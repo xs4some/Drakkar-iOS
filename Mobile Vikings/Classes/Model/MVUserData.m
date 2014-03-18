@@ -14,7 +14,7 @@
 @implementation MVUserData
 
 
-+ (NSDictionary *)credentialsWithPassCode:(NSString *)passCode {
++ (NSDictionary *)credentialsWithPassCode:(NSString *)passCode andError:(NSError *__autoreleasing *)error {
 
     NSData *encryptedData = nil;
     
@@ -30,36 +30,28 @@
     
 #endif
     
-    NSError *error;
     NSData *data = [RNDecryptor decryptData:encryptedData
                                withSettings:kRNCryptorAES256Settings
                                    password:passCode
-                                      error:&error];
-    if (error != nil) {
-        return nil;
-    }
+                                      error:error];
     
     NSDictionary *credentials = (NSDictionary *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
 
     return credentials;
 }
 
-+ (BOOL)storeCredentials:(NSDictionary *)credentials withPassCode:(NSString *)passCode {
++ (BOOL)storeCredentials:(NSDictionary *)credentials withPassCode:(NSString *)passCode andError:(NSError *__autoreleasing *)error{
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:credentials];
-    NSError *error;
     NSData *encryptedData = [RNEncryptor encryptData:data
                                         withSettings:kRNCryptorAES256Settings
                                             password:passCode
-                                               error:&error];
-    
-    if (error != nil) {
-        return  NO;
-    }
+                                               error:error];
     
 #if TARGET_IPHONE_SIMULATOR
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:encryptedData forKey:@"encryptedData"];
+    [userDefaults synchronize];
 
 #else
     

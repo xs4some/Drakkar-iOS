@@ -12,7 +12,7 @@
 @interface MVRegisterService : MKNetworkOperation
 
 // The actual login
-- (id)initServiceWithToken:(NSString *)token userName:(NSString *)userName passWord:(NSString *)passWord;
+- (id)initServiceWithUserName:(NSString *)userName passWord:(NSString *)passWord;
 - (void)registerCompletionBlock:(void(^)(void))completionBlock onError:(MKNKErrorBlock)errorBlock;
 
 @end

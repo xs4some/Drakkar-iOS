@@ -11,6 +11,6 @@
 @interface MVTokenService : MKNetworkOperation
 
 - (id)initTokenService;
-- (void)tokenCompletionBlock:(void(^)(NSHTTPCookie *token))completionBlock onError:(MKNKErrorBlock)errorBlock;
+- (void)tokenCompletionBlock:(void(^)(void))completionBlock onError:(MKNKErrorBlock)errorBlock;
 
 @end

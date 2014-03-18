@@ -10,7 +10,7 @@
 
 @interface MVUserData : NSObject
 
-+ (NSDictionary *)credentialsWithPassCode:(NSString *)passCode;
-+ (BOOL)storeCredentials:(NSDictionary *)credentials withPassCode:(NSString *)passCode;
++ (NSDictionary *)credentialsWithPassCode:(NSString *)passCode andError:(NSError **)error;
++ (BOOL)storeCredentials:(NSDictionary *)credentials withPassCode:(NSString *)passCode andError:(NSError **)error;
 
 @end

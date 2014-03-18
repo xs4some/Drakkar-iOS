@@ -24,24 +24,29 @@
     return self;
 }
 
-- (void)tokenCompletionBlock:(void(^)(NSHTTPCookie *))completionBlock onError:(MKNKErrorBlock)errorBlock {
+- (void)tokenCompletionBlock:(void(^)(void))completionBlock onError:(MKNKErrorBlock)errorBlock {
     
     [self addCompletionHandler:^(MKNetworkOperation *completedOperation) {
-        NSArray *cookieJar = [NSHTTPCookie cookiesWithResponseHeaderFields:[completedOperation.readonlyResponse allHeaderFields] forURL:[NSURL URLWithString:@"https://mobilevikings.com/"]];
-        
-        for (NSHTTPCookie *cookie in cookieJar) {
-            if ([cookie.name isEqualToString:@"csrftoken"]) {
-                completionBlock(cookie);
-                return;
+        if (!completedOperation.isCachedResponse) {
+            NSArray *cookieJar = [NSHTTPCookie cookiesWithResponseHeaderFields:[completedOperation.readonlyResponse allHeaderFields] forURL:[NSURL URLWithString:@"https://mobilevikings.com/"]];
+            
+            for (NSHTTPCookie *cookie in cookieJar) {
+                if ([cookie.name isEqualToString:@"csrftoken"]) {
+                    ApplicationDelegate.token = cookie;
+                    completionBlock();
+                    return;
+                }
             }
+            NSError *error = [NSError errorWithDomain:kErrorDomain code:500 userInfo:@{@"Reason": NSLocalizedString(@"Session token not found in response! Unable to login", @"Error stating session token cannot be found")}];
+            [ApplicationDelegate.engine emptyCache];
+            errorBlock(error);
         }
-        NSError *error = [NSError errorWithDomain:kErrorDomain code:500 userInfo:@{@"Reason": NSLocalizedString(@"Session token not found in response! Unable to login", @"Error stating session token cannot be found")}];
-        [ApplicationDelegate.engine emptyCache];
-        errorBlock(error);
     } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
         [ApplicationDelegate.engine emptyCache];
         errorBlock(error);
     }];
+    
+    [ApplicationDelegate.engine emptyCache];
     
     [ApplicationDelegate.engine enqueueOperation:self forceReload:YES];
 }

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MVBalanceViewController.h
 //  Mobile Vikings
 //
 //  Created by Hendrik Bruinsma on 09-01-14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MVBalanceViewController : UIViewController
 
 @end

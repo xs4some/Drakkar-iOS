@@ -14,18 +14,16 @@
 
 @interface MVRegisterService ()
 
-@property (nonatomic, strong) NSString *token;
-
 @end
 
 @implementation MVRegisterService
 
-- (id)initServiceWithToken:(NSString *)token userName:(NSString *)userName passWord:(NSString *)passWord {
+- (id)initServiceWithUserName:(NSString *)userName passWord:(NSString *)passWord {
     NSDictionary *headers = @{ @"Referer" : kLoginUrl,
                                @"X-Requested-With" : @"XMLHttpRequest",
-                               @"X-CSRFToken" : token};
+                               @"X-CSRFToken" : ApplicationDelegate.token.value};
     
-    NSDictionary *params = @{ @"csrfmiddlewaretoken" : token,
+    NSDictionary *params = @{ @"csrfmiddlewaretoken" : ApplicationDelegate.token.value,
                               @"username" : userName,
                               @"password" : passWord,
                               @"next" : @"/nld/nl"};

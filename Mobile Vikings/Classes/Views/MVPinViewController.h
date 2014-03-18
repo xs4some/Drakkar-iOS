@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, MVPinScreenState) {
+    MVPinLoginStateLogin,
+    MVPinScreenStateActivate,
+};
+
 @interface MVPinViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet UILabel *explanatoryText;
@@ -22,5 +27,7 @@
 
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *passWord;
+
+@property (nonatomic, assign) MVPinScreenState pinScreenState;
 
 @end

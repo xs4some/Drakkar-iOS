@@ -21,14 +21,19 @@
 
 @implementation MVLoginService
 
-- (id)initServiceWithToken:(NSString *)token passCode:(NSString *)passCode {
+
+- (id)initServiceWithPassCode:(NSString *)passCode andError:(NSError **)error {
     NSDictionary *headers = @{ @"Referer" : kLoginUrl,
                                @"X-Requested-With" : @"XMLHttpRequest",
-                               @"X-CSRFToken" : token};
+                               @"X-CSRFToken" : ApplicationDelegate.token.value};
     
-    NSDictionary *credentials = [MVUserData credentialsWithPassCode:passCode];
+    NSDictionary *credentials = [MVUserData credentialsWithPassCode:passCode andError:error];
     
-    NSDictionary *params = @{ @"csrfmiddlewaretoken" : token,
+    if (credentials == nil) {
+        return nil;
+    }
+    
+    NSDictionary *params = @{ @"csrfmiddlewaretoken" : ApplicationDelegate.token.value,
                               @"username" : [credentials objectForKey:@"userName"],
                               @"password" : [credentials objectForKey:@"passWord"],
                               @"next" : @"/nld/nl"};

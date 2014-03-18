@@ -10,10 +10,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MKNetworkKit.h"
+#import "MVBalance.h"
 
 @interface MVAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) MKNetworkEngine *engine;
+@property (strong, nonatomic) NSHTTPCookie *token;
+@property (strong, nonatomic) MVBalance *balance;
+@property (strong, nonatomic) UINavigationController *navigationController;
 
 @end

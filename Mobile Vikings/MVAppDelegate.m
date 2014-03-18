@@ -9,6 +9,8 @@
 #import "MVAppDelegate.h"
 #import <KeychainItemWrapper/KeychainItemWrapper.h>
 #import "MVActivationViewController.h"
+#import "MVPinViewController.h"
+#import "MVBalanceViewController.h"
 
 @implementation MVAppDelegate
 
@@ -20,11 +22,17 @@
     
     self.engine = [[MKNetworkEngine alloc] initWithHostName:nil customHeaderFields:nil];
     [self.engine useCache];
+    
+    MVBalanceViewController *balanceViewController = [[MVBalanceViewController alloc] initWithNibName:@"MVBalanceViewController" bundle:[NSBundle mainBundle]];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:balanceViewController];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
 
 #if TARGET_IPHONE_SIMULATOR
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     if ([userDefaults objectForKey:@"encryptedData"] == nil) {
+        
 #else
         
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"MobileVikingsNL" accessGroup:nil];
@@ -35,10 +43,16 @@
     
         MVActivationViewController *activationController = [[MVActivationViewController alloc] initWithNibName:@"MVActivationViewController" bundle:[NSBundle mainBundle]];
         
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:activationController];
+        UINavigationController *modalNavigationController = [[UINavigationController alloc] initWithRootViewController:activationController];
         
-        self.window.rootViewController = navigationController;
-        [self.window makeKeyAndVisible];
+        [self.navigationController presentViewController:modalNavigationController animated:NO completion:NULL];
+    }
+    else {
+        MVPinViewController *pinController = [[MVPinViewController alloc] initWithNibName:@"MVPinViewController" bundle:[NSBundle mainBundle]];
+        pinController.pinScreenState = MVPinLoginStateLogin;
+        UINavigationController *modalNavigationController = [[UINavigationController alloc] initWithRootViewController:pinController];
+        
+        [self.navigationController presentViewController:modalNavigationController animated:NO completion:NULL];
     }
     
     return YES;

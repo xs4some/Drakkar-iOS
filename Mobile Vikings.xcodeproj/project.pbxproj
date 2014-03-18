@@ -13,8 +13,6 @@
 		62418828187F265300B3797D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62418826187F265300B3797D /* InfoPlist.strings */; };
 		6241882A187F265300B3797D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62418829187F265300B3797D /* main.m */; };
 		6241882E187F265300B3797D /* MVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6241882D187F265300B3797D /* MVAppDelegate.m */; };
-		62418831187F265300B3797D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6241882F187F265300B3797D /* Main.storyboard */; };
-		62418834187F265300B3797D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62418833187F265300B3797D /* ViewController.m */; };
 		62418836187F265300B3797D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62418835187F265300B3797D /* Images.xcassets */; };
 		6241883D187F265300B3797D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6241883C187F265300B3797D /* XCTest.framework */; };
 		6241883E187F265300B3797D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6241881D187F265300B3797D /* Foundation.framework */; };
@@ -33,6 +31,8 @@
 		C86E96B018C3C09100EDDDA1 /* MVTokenService.m in Sources */ = {isa = PBXBuildFile; fileRef = C86E96AF18C3C09100EDDDA1 /* MVTokenService.m */; };
 		C86E96B718C706B600EDDDA1 /* MVPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C86E96B518C706B600EDDDA1 /* MVPinViewController.m */; };
 		C86E96B818C706B600EDDDA1 /* MVPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86E96B618C706B600EDDDA1 /* MVPinViewController.xib */; };
+		C89F1E1718D8404400ED2774 /* MVBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89F1E1618D8404400ED2774 /* MVBalanceViewController.m */; };
+		C89F1E1918D84DFF00ED2774 /* MVBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C89F1E1818D84DFF00ED2774 /* MVBalanceViewController.xib */; };
 		E0158D3F280C46B588E0E4C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92325C8BF0F04FCFB3D5DD31 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -57,9 +57,6 @@
 		6241882B187F265300B3797D /* Mobile Vikings-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobile Vikings-Prefix.pch"; sourceTree = "<group>"; };
 		6241882C187F265300B3797D /* MVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVAppDelegate.h; sourceTree = "<group>"; };
 		6241882D187F265300B3797D /* MVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVAppDelegate.m; sourceTree = "<group>"; };
-		62418830187F265300B3797D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		62418832187F265300B3797D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		62418833187F265300B3797D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		62418835187F265300B3797D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6241883B187F265300B3797D /* Mobile VikingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mobile VikingsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6241883C187F265300B3797D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -89,6 +86,9 @@
 		C86E96B418C706B600EDDDA1 /* MVPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVPinViewController.h; path = "Mobile Vikings/Classes/Views/MVPinViewController.h"; sourceTree = SOURCE_ROOT; };
 		C86E96B518C706B600EDDDA1 /* MVPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVPinViewController.m; path = "Mobile Vikings/Classes/Views/MVPinViewController.m"; sourceTree = SOURCE_ROOT; };
 		C86E96B618C706B600EDDDA1 /* MVPinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MVPinViewController.xib; path = "Mobile Vikings/Classes/Views/MVPinViewController.xib"; sourceTree = SOURCE_ROOT; };
+		C89F1E1518D8404400ED2774 /* MVBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVBalanceViewController.h; path = "Mobile Vikings/Classes/Views/MVBalanceViewController.h"; sourceTree = SOURCE_ROOT; };
+		C89F1E1618D8404400ED2774 /* MVBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVBalanceViewController.m; path = "Mobile Vikings/Classes/Views/MVBalanceViewController.m"; sourceTree = SOURCE_ROOT; };
+		C89F1E1818D84DFF00ED2774 /* MVBalanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MVBalanceViewController.xib; path = "Mobile Vikings/Classes/Views/MVBalanceViewController.xib"; sourceTree = SOURCE_ROOT; };
 		D2259AFAB9CE4086AD1B7158 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,9 +159,6 @@
 				62E6BB431885B5C70076C3B2 /* Service */,
 				6241882C187F265300B3797D /* MVAppDelegate.h */,
 				6241882D187F265300B3797D /* MVAppDelegate.m */,
-				6241882F187F265300B3797D /* Main.storyboard */,
-				62418832187F265300B3797D /* ViewController.h */,
-				62418833187F265300B3797D /* ViewController.m */,
 				62418835187F265300B3797D /* Images.xcassets */,
 				62418824187F265300B3797D /* Supporting Files */,
 			);
@@ -203,6 +200,9 @@
 				C86E96A618C2805000EDDDA1 /* MVActivationViewController.h */,
 				C86E96A718C2805000EDDDA1 /* MVActivationViewController.m */,
 				C86E96A818C2805000EDDDA1 /* MVActivationViewController.xib */,
+				C89F1E1518D8404400ED2774 /* MVBalanceViewController.h */,
+				C89F1E1618D8404400ED2774 /* MVBalanceViewController.m */,
+				C89F1E1818D84DFF00ED2774 /* MVBalanceViewController.xib */,
 				C86E96B418C706B600EDDDA1 /* MVPinViewController.h */,
 				C86E96B518C706B600EDDDA1 /* MVPinViewController.m */,
 				C86E96B618C706B600EDDDA1 /* MVPinViewController.xib */,
@@ -351,7 +351,7 @@
 				C86E96B818C706B600EDDDA1 /* MVPinViewController.xib in Resources */,
 				62418836187F265300B3797D /* Images.xcassets in Resources */,
 				62418828187F265300B3797D /* InfoPlist.strings in Resources */,
-				62418831187F265300B3797D /* Main.storyboard in Resources */,
+				C89F1E1918D84DFF00ED2774 /* MVBalanceViewController.xib in Resources */,
 				C86E96AA18C2805000EDDDA1 /* MVActivationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,7 +406,6 @@
 			files = (
 				C86E96B018C3C09100EDDDA1 /* MVTokenService.m in Sources */,
 				62E6BC1118865E2D0076C3B2 /* MVBalanceService.m in Sources */,
-				62418834187F265300B3797D /* ViewController.m in Sources */,
 				C86E96A218C27AED00EDDDA1 /* MVLoginCell.m in Sources */,
 				C86E96B718C706B600EDDDA1 /* MVPinViewController.m in Sources */,
 				62E6BC1D1887D11B0076C3B2 /* UIColor+RGB.m in Sources */,
@@ -414,6 +413,7 @@
 				62E6BB461885B63E0076C3B2 /* MVLoginService.m in Sources */,
 				6241882E187F265300B3797D /* MVAppDelegate.m in Sources */,
 				C86E96A918C2805000EDDDA1 /* MVActivationViewController.m in Sources */,
+				C89F1E1718D8404400ED2774 /* MVBalanceViewController.m in Sources */,
 				C86E969918C26D6200EDDDA1 /* MVUserData.m in Sources */,
 				C86E96AD18C3442600EDDDA1 /* MVRegisterService.m in Sources */,
 				6241882A187F265300B3797D /* main.m in Sources */,
@@ -445,14 +445,6 @@
 				62418827187F265300B3797D /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6241882F187F265300B3797D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				62418830187F265300B3797D /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		62418845187F265300B3797D /* InfoPlist.strings */ = {
