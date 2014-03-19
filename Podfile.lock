@@ -1,6 +1,5 @@
 PODS:
   - KeychainItemWrapper (1.2)
-  - MBProgressHUD (0.8)
   - MKNetworkKit (0.87):
     - Reachability (~> 3.1.0)
   - Reachability (3.1.1)
@@ -11,7 +10,6 @@ PODS:
 
 DEPENDENCIES:
   - KeychainItemWrapper
-  - MBProgressHUD
   - MKNetworkKit
   - RNCryptor
   - Toast
@@ -20,7 +18,6 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   KeychainItemWrapper: b532e85de8792ea70dad237e7ead90993af763cf
-  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   MKNetworkKit: f174100f92473012138b6b1c3040266af8d43a14
   Reachability: be4883bb93f31e38266ae3365e5600a317aae735
   RNCryptor: 1420380792b33758d2414cf37af160ea2495e15c

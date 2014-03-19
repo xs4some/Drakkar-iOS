@@ -9,9 +9,9 @@
 #import "MVPinViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <Toast+UIView.h>
 
 #import "MVAppDelegate.h"
-#import <MBProgressHUD/MBProgressHUD.h>
 #import "MVTokenService.h"
 #import "MVLoginService.h"
 #import "MVUserData.h"
@@ -190,10 +190,7 @@
 }
 
 - (void)processLogin {
-    MBProgressHUD *hud = [MBProgressHUD HUDForView:self.view];
-    hud.labelText = @"Loggin in...";
-    hud.hidden = NO;
-    
+    [self.view makeToastActivity];
     MVTokenService *tokenService = [[MVTokenService alloc] initTokenService];
     [tokenService tokenCompletionBlock:^() {
         
@@ -201,12 +198,8 @@
         MVLoginService *loginService = [[MVLoginService alloc] initServiceWithPassCode:self.pinField.text andError:&error ];
         
         if (error != nil || loginService == nil) {
-            UIAlertView *decodingErrorAlert = [[UIAlertView alloc] initWithTitle:nil
-                                                                         message:NSLocalizedString(@"Unable to get credentials with entered access code. Please try again.", @"")
-                                                                        delegate:nil
-                                                               cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
-                                                               otherButtonTitles:nil];
-            [decodingErrorAlert show];
+            [self.view hideToastActivity];
+            [self.view makeToast:NSLocalizedString(@"Unable to get credentials with entered access code. Please try again.", @"")];
             self.pinField.text = @"";
             self.pin0.backgroundColor = [UIColor whiteColor];
             self.pin1.backgroundColor = [UIColor whiteColor];
@@ -217,16 +210,16 @@
         }
         else {            
             [loginService loginCompletionBlock:^{
-                [hud removeFromSuperview];
+                [self.view hideToastActivity];
                 [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
             } onError:^(NSError *error) {
+                [self.view hideToastActivity];
                 NSLog(@"%@", error);
-                [hud removeFromSuperview];
             }];
         }
     } onError:^(NSError *error) {
-        NSLog(@"%@", error);
-        [hud removeFromSuperview];
+        [self.view hideToastActivity];
+        [self.view makeToast:NSLocalizedString(@"Unable to connect to server, please try again later", @"Network error toast shown on Activation screen")];
     }];
 }
 

@@ -7,10 +7,17 @@
 //
 
 #import "MVAppDelegate.h"
+
 #import <KeychainItemWrapper/KeychainItemWrapper.h>
+
+#import "MVSideBarViewController.h"
 #import "MVActivationViewController.h"
 #import "MVPinViewController.h"
 #import "MVBalanceViewController.h"
+
+@interface MVAppDelegate ()
+
+@end
 
 @implementation MVAppDelegate
 
@@ -23,21 +30,26 @@
     self.engine = [[MKNetworkEngine alloc] initWithHostName:nil customHeaderFields:nil];
     [self.engine useCache];
     
+    MVSideBarViewController *sideBarViewController = [[MVSideBarViewController alloc] initWithNibName:@"MVSideBarViewController" bundle:[NSBundle mainBundle]];
+    
     MVBalanceViewController *balanceViewController = [[MVBalanceViewController alloc] initWithNibName:@"MVBalanceViewController" bundle:[NSBundle mainBundle]];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:balanceViewController];
-    self.window.rootViewController = self.navigationController;
+
+    self.deckController = [[IIViewDeckController alloc] initWithCenterViewController:self.navigationController leftViewController:sideBarViewController];
+
+    self.window.rootViewController = self.deckController;
     [self.window makeKeyAndVisible];
 
 #if TARGET_IPHONE_SIMULATOR
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    if ([userDefaults objectForKey:@"encryptedData"] == nil) {
+    if ([userDefaults objectForKey:@"encryptedUserName"] == nil) {
         
 #else
         
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"MobileVikingsNL" accessGroup:nil];
         
-    if ([keychain objectForKey:@"encryptedData"] == nil) {
+    if ([keychain objectForKey:(__bridge id)kSecAttrAccount] == nil) {
 
 #endif
     

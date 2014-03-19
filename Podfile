@@ -7,7 +7,12 @@ xcodeproj 'Mobile Vikings.xcodeproj'
 pod 'MKNetworkKit'
 pod 'TYMProgressBarView'
 pod 'ViewDeck'
-pod 'MBProgressHUD'
 pod 'Toast'	
 pod 'RNCryptor'
 pod 'KeychainItemWrapper'
+
+post_install do | installer |
+  require 'fileutils'
+  FileUtils.cp_r('Pods/Pods-Acknowledgements.plist', 'Mobile Vikings/Resources/Acknowledgements.plist', :remove_destination => true)
+end
+

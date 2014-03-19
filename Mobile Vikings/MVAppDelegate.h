@@ -9,7 +9,9 @@
 #define ApplicationDelegate ((MVAppDelegate *)[UIApplication sharedApplication].delegate)
 
 #import <UIKit/UIKit.h>
-#import "MKNetworkKit.h"
+#import <IIViewDeckController.h>
+#import <MKNetworkKit/MKNetworkKit.h>
+
 #import "MVBalance.h"
 
 @interface MVAppDelegate : UIResponder <UIApplicationDelegate>
@@ -19,5 +21,6 @@
 @property (strong, nonatomic) NSHTTPCookie *token;
 @property (strong, nonatomic) MVBalance *balance;
 @property (strong, nonatomic) UINavigationController *navigationController;
+@property (nonatomic, strong) IIViewDeckController *deckController;
 
 @end

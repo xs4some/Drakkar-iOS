@@ -33,6 +33,11 @@
 		C86E96B818C706B600EDDDA1 /* MVPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86E96B618C706B600EDDDA1 /* MVPinViewController.xib */; };
 		C89F1E1718D8404400ED2774 /* MVBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89F1E1618D8404400ED2774 /* MVBalanceViewController.m */; };
 		C89F1E1918D84DFF00ED2774 /* MVBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C89F1E1818D84DFF00ED2774 /* MVBalanceViewController.xib */; };
+		C89F1E1D18D87C8700ED2774 /* MVSideBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89F1E1B18D87C8700ED2774 /* MVSideBarViewController.m */; };
+		C89F1E1E18D87C8700ED2774 /* MVSideBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C89F1E1C18D87C8700ED2774 /* MVSideBarViewController.xib */; };
+		C89F1E2218D8E74E00ED2774 /* MVDisclaimerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89F1E2018D8E74E00ED2774 /* MVDisclaimerTableViewController.m */; };
+		C89F1E2318D8E74E00ED2774 /* MVDisclaimerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C89F1E2118D8E74E00ED2774 /* MVDisclaimerTableViewController.xib */; };
+		C8DDC28618DA1C1E003ECE89 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8DDC28518DA1C1E003ECE89 /* Acknowledgements.plist */; };
 		E0158D3F280C46B588E0E4C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92325C8BF0F04FCFB3D5DD31 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +94,13 @@
 		C89F1E1518D8404400ED2774 /* MVBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVBalanceViewController.h; path = "Mobile Vikings/Classes/Views/MVBalanceViewController.h"; sourceTree = SOURCE_ROOT; };
 		C89F1E1618D8404400ED2774 /* MVBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVBalanceViewController.m; path = "Mobile Vikings/Classes/Views/MVBalanceViewController.m"; sourceTree = SOURCE_ROOT; };
 		C89F1E1818D84DFF00ED2774 /* MVBalanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MVBalanceViewController.xib; path = "Mobile Vikings/Classes/Views/MVBalanceViewController.xib"; sourceTree = SOURCE_ROOT; };
+		C89F1E1A18D87C8700ED2774 /* MVSideBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVSideBarViewController.h; path = "Mobile Vikings/Classes/Views/MVSideBarViewController.h"; sourceTree = SOURCE_ROOT; };
+		C89F1E1B18D87C8700ED2774 /* MVSideBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVSideBarViewController.m; path = "Mobile Vikings/Classes/Views/MVSideBarViewController.m"; sourceTree = SOURCE_ROOT; };
+		C89F1E1C18D87C8700ED2774 /* MVSideBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MVSideBarViewController.xib; path = "Mobile Vikings/Classes/Views/MVSideBarViewController.xib"; sourceTree = SOURCE_ROOT; };
+		C89F1E1F18D8E74E00ED2774 /* MVDisclaimerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVDisclaimerTableViewController.h; path = "Mobile Vikings/Classes/Views/MVDisclaimerTableViewController.h"; sourceTree = SOURCE_ROOT; };
+		C89F1E2018D8E74E00ED2774 /* MVDisclaimerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVDisclaimerTableViewController.m; path = "Mobile Vikings/Classes/Views/MVDisclaimerTableViewController.m"; sourceTree = SOURCE_ROOT; };
+		C89F1E2118D8E74E00ED2774 /* MVDisclaimerTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MVDisclaimerTableViewController.xib; path = "Mobile Vikings/Classes/Views/MVDisclaimerTableViewController.xib"; sourceTree = SOURCE_ROOT; };
+		C8DDC28518DA1C1E003ECE89 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
 		D2259AFAB9CE4086AD1B7158 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +164,7 @@
 		62418823187F265300B3797D /* Mobile Vikings */ = {
 			isa = PBXGroup;
 			children = (
+				C8DDC28418DA1C1E003ECE89 /* Resources */,
 				C86E969F18C27AD700EDDDA1 /* Custom UI */,
 				62E6BC1A1887D1040076C3B2 /* Helper */,
 				62E6BB411885B5C70076C3B2 /* Views */,
@@ -206,6 +219,12 @@
 				C86E96B418C706B600EDDDA1 /* MVPinViewController.h */,
 				C86E96B518C706B600EDDDA1 /* MVPinViewController.m */,
 				C86E96B618C706B600EDDDA1 /* MVPinViewController.xib */,
+				C89F1E1A18D87C8700ED2774 /* MVSideBarViewController.h */,
+				C89F1E1B18D87C8700ED2774 /* MVSideBarViewController.m */,
+				C89F1E1C18D87C8700ED2774 /* MVSideBarViewController.xib */,
+				C89F1E1F18D8E74E00ED2774 /* MVDisclaimerTableViewController.h */,
+				C89F1E2018D8E74E00ED2774 /* MVDisclaimerTableViewController.m */,
+				C89F1E2118D8E74E00ED2774 /* MVDisclaimerTableViewController.xib */,
 			);
 			name = Views;
 			path = Classes/Controller;
@@ -256,6 +275,14 @@
 			);
 			name = "Custom UI";
 			path = "Classes/Custom UI";
+			sourceTree = "<group>";
+		};
+		C8DDC28418DA1C1E003ECE89 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C8DDC28518DA1C1E003ECE89 /* Acknowledgements.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,8 +378,11 @@
 				C86E96B818C706B600EDDDA1 /* MVPinViewController.xib in Resources */,
 				62418836187F265300B3797D /* Images.xcassets in Resources */,
 				62418828187F265300B3797D /* InfoPlist.strings in Resources */,
+				C8DDC28618DA1C1E003ECE89 /* Acknowledgements.plist in Resources */,
 				C89F1E1918D84DFF00ED2774 /* MVBalanceViewController.xib in Resources */,
+				C89F1E1E18D87C8700ED2774 /* MVSideBarViewController.xib in Resources */,
 				C86E96AA18C2805000EDDDA1 /* MVActivationViewController.xib in Resources */,
+				C89F1E2318D8E74E00ED2774 /* MVDisclaimerTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +436,7 @@
 			files = (
 				C86E96B018C3C09100EDDDA1 /* MVTokenService.m in Sources */,
 				62E6BC1118865E2D0076C3B2 /* MVBalanceService.m in Sources */,
+				C89F1E1D18D87C8700ED2774 /* MVSideBarViewController.m in Sources */,
 				C86E96A218C27AED00EDDDA1 /* MVLoginCell.m in Sources */,
 				C86E96B718C706B600EDDDA1 /* MVPinViewController.m in Sources */,
 				62E6BC1D1887D11B0076C3B2 /* UIColor+RGB.m in Sources */,
@@ -417,6 +448,7 @@
 				C86E969918C26D6200EDDDA1 /* MVUserData.m in Sources */,
 				C86E96AD18C3442600EDDDA1 /* MVRegisterService.m in Sources */,
 				6241882A187F265300B3797D /* main.m in Sources */,
+				C89F1E2218D8E74E00ED2774 /* MVDisclaimerTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

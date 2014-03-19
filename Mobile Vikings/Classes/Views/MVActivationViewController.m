@@ -7,11 +7,13 @@
 //
 
 #import "MVActivationViewController.h"
+
+#import <Toast+UIView.h>
+
 #import "MVPinViewController.h"
 #import "MVLoginCell.h"
 #import "MVRegisterService.h"
 #import "MVTokenService.h"
-#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface MVActivationViewController ()
 
@@ -126,25 +128,18 @@
     NSString *passWord = passWordCell.textField.text;
     
     if (userName == nil || [userName isEqualToString:@""] || passWord == nil || [passWord isEqualToString:@""]) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
-                                                            message:@"Please enter a username and password"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+        [self.view makeToast:NSLocalizedString(@"Please enter a username and password", @"Username or password is empty toast on Activation screen")];
         [userNameCell.textField becomeFirstResponder];
     }
     else {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeAnnularDeterminate;
-        hud.labelText = @"Loading...";
-        [hud  show:YES];
+       [self.view makeToastActivity];
         MVTokenService *tokenService = [[MVTokenService alloc] initTokenService];
         
         [tokenService tokenCompletionBlock:^(void) {
             MVRegisterService *registerService = [[ MVRegisterService alloc] initServiceWithUserName:userName passWord:passWord];
             
             [registerService registerCompletionBlock:^{
+                
                 MVPinViewController *pinViewController = [[MVPinViewController alloc] initWithNibName:@"MVPinViewController" bundle:[NSBundle mainBundle]];
                 pinViewController.userName = userName;
                 pinViewController.passWord = passWord;
@@ -156,79 +151,18 @@
                     case 401:
                     case 403:
                     case kCFErrorHTTPBadCredentials: {
-                        UIAlertView *userErrorAlert = [[UIAlertView alloc] initWithTitle:nil
-                                                                                 message:@"Invalid username or password"
-                                                                                delegate:self
-                                                                       cancelButtonTitle:@"OK"
-                                                                       otherButtonTitles:nil];
-                        [userErrorAlert show];
-                        [userNameCell.textField becomeFirstResponder];
+                        [self.view makeToast:NSLocalizedString(@"Invalid username or password", @"Invalid username or password toast on Activation screen")];
+                        [passWordCell.textField becomeFirstResponder];
                     }
                         break;
-                        
-                    case kCFHostErrorHostNotFound:
-                    case kCFHostErrorUnknown:
-                    case kCFErrorHTTPBadURL:
-                    case kCFErrorHTTPConnectionLost:
-                    case kCFURLErrorNetworkConnectionLost:
-                    case kCFURLErrorCannotConnectToHost:
-                    case kCFURLErrorCannotFindHost:
-                    case kCFURLErrorTimedOut:
-                    case kCFURLErrorSecureConnectionFailed:
-                    case kCFURLErrorCannotLoadFromNetwork: {
-                        UIAlertView *unknownErrorAlert = [[UIAlertView alloc] initWithTitle:nil
-                                                                                    message:@"Unable to connect to server, please try again later"
-                                                                                   delegate:self
-                                                                          cancelButtonTitle:@"OK"
-                                                                          otherButtonTitles:nil];
-                        [unknownErrorAlert show];
-                    }
-                        break;
-                        
                     default: {
-                        UIAlertView *unknownErrorAlert = [[UIAlertView alloc] initWithTitle:nil
-                                                                                 message:@"Unknown error occurerd, please try again later"
-                                                                                delegate:self
-                                                                       cancelButtonTitle:@"OK"
-                                                                       otherButtonTitles:nil];
-                        [unknownErrorAlert show];
+                        [self.view makeToast:NSLocalizedString(@"Unable to connect to server, please try again later", @"Network error toast shown on Activation screen")];
                     }
                         break;
                 }
-                [hud hide:YES];
             }];
         } onError:^(NSError *error) {
-            switch (error.code) {
-                case kCFHostErrorHostNotFound:
-                case kCFHostErrorUnknown:
-                case kCFErrorHTTPBadURL:
-                case kCFErrorHTTPConnectionLost:
-                case kCFURLErrorNetworkConnectionLost:
-                case kCFURLErrorCannotConnectToHost:
-                case kCFURLErrorCannotFindHost:
-                case kCFURLErrorTimedOut:
-                case kCFURLErrorSecureConnectionFailed:
-                case kCFURLErrorCannotLoadFromNetwork: {
-                    UIAlertView *unknownErrorAlert = [[UIAlertView alloc] initWithTitle:nil
-                                                                                message:@"Unable to connect to server, please try again later"
-                                                                               delegate:self
-                                                                      cancelButtonTitle:@"OK"
-                                                                      otherButtonTitles:nil];
-                    [unknownErrorAlert show];
-                }
-                    break;
-                    
-                default: {
-                    UIAlertView *unknownErrorAlert = [[UIAlertView alloc] initWithTitle:nil
-                                                                                message:@"Unknown error occurerd, please try again later"
-                                                                               delegate:self
-                                                                      cancelButtonTitle:@"OK"
-                                                                      otherButtonTitles:nil];
-                    [unknownErrorAlert show];
-                }
-                    break;
-            }
-            [hud hide:YES];
+            [self.view makeToast:NSLocalizedString(@"Unable to connect to server, please try again later", @"Network error toast shown on Activation screen")];
         }];
     }
 }

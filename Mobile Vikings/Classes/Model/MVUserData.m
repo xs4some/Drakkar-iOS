@@ -80,12 +80,12 @@
     return YES;
 }
 
-
 + (void)removeCredentials {
 #if TARGET_IPHONE_SIMULATOR
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults removeObjectForKey:@"encryptedData"];
+    [userDefaults removeObjectForKey:@"encryptedUserName"];
+    [userDefaults removeObjectForKey:@"encryptedPassWord"];
     [userDefaults synchronize];
     
 #else

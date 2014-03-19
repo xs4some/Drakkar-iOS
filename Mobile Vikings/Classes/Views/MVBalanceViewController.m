@@ -8,8 +8,8 @@
 
 #import "MVBalanceViewController.h"
 
-#import <MBProgressHUD/MBProgressHUD.h>
 #import <TYMProgressBarView/TYMProgressBarView.h>
+#import <Toast+UIView.h>
 
 #import "MVAppDelegate.h"
 #import "MVBalanceService.h"
@@ -24,6 +24,7 @@
 @property (nonatomic, strong) TYMProgressBarView *smsProgressBar;
 
 - (void)drawBalanceBars;
+- (void)resetApp;
 
 @end
 
@@ -48,6 +49,9 @@
     self.smsProgressBar.progress = 0.0f;
     
     [self.view addSubview:self.smsProgressBar];
+        
+//    UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemUndo target:self action:@selector(resetApp)];
+//    self.navigationItem.leftBarButtonItem = resetButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,18 +63,16 @@
     [super viewDidAppear:animated];
     
     if (ApplicationDelegate.token.value != nil) {
-        MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
-        hud.labelText = NSLocalizedString(@"Retrieving balance information", @"");
-        [hud show:YES];
+        [self.view makeToastActivity];
         MVBalanceService *balanceService = [[MVBalanceService alloc] initServiceWithToken:ApplicationDelegate.token.value];
         
         [balanceService balanceCompletionBlock:^(NSDictionary *balance) {
             self.balance = [[MVBalance alloc] initWithDictionary:balance];
-            [hud show:NO];
+            [self.view hideToastActivity];
             [self drawBalanceBars];
         } onError:^(NSError *error) {
             NSLog(@"%@", error);
-            [hud show:NO];
+            [self.view hideToastActivity];
         }];
     }
 }
@@ -116,6 +118,10 @@
     [UIView beginAnimations:@"SMSProgressBarAnimation" context:nil];
     self.smsProgressBar.progress = (self.balance.smsNow.floatValue / self.balance.smsFull.floatValue);
     [UIView commitAnimations];
+}
+
+- (void)resetApp {
+    
 }
 
 @end
