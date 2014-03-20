@@ -14,6 +14,7 @@
 #import "MVDisclaimerTableViewController.h"
 #import "MVActivationViewController.h"
 #import "MVBalanceViewController.h"
+#import "MVPinViewController.h"
 #import "MVUserData.h"
 
 @interface MVSideBarViewController ()
@@ -87,11 +88,28 @@
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            MVBalanceViewController *balanceViewController = [[MVBalanceViewController alloc] initWithNibName:@"MVBalanceViewController" bundle:[NSBundle mainBundle]];
-            
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:balanceViewController];
-            ApplicationDelegate.deckController.centerController = navigationController;
-            [ApplicationDelegate.deckController closeLeftViewAnimated:YES];
+            if (ApplicationDelegate.token == nil) {
+                if ([MVUserData isActivated]) {
+                    MVPinViewController *pinViewController = [[MVPinViewController alloc] initWithNibName:@"MVPinViewController" bundle:[NSBundle mainBundle]];
+                    
+                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:pinViewController];
+                    ApplicationDelegate.deckController.centerController = navigationController;
+                    [ApplicationDelegate.deckController closeLeftViewAnimated:YES];                }
+                else {
+                    MVActivationViewController *activationViewController = [[MVActivationViewController alloc] initWithNibName:@"MVActivationViewController" bundle:[NSBundle mainBundle]];
+                    
+                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:activationViewController];
+                    ApplicationDelegate.deckController.centerController = navigationController;
+                    [ApplicationDelegate.deckController closeLeftViewAnimated:YES];
+                }
+            }
+            else {
+                MVBalanceViewController *balanceViewController = [[MVBalanceViewController alloc] initWithNibName:@"MVBalanceViewController" bundle:[NSBundle mainBundle]];
+                
+                UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:balanceViewController];
+                ApplicationDelegate.deckController.centerController = navigationController;
+                [ApplicationDelegate.deckController closeLeftViewAnimated:YES];
+            }
         }
     }
     else {

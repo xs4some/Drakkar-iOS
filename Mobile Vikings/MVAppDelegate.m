@@ -55,16 +55,16 @@
     
         MVActivationViewController *activationController = [[MVActivationViewController alloc] initWithNibName:@"MVActivationViewController" bundle:[NSBundle mainBundle]];
         
-        UINavigationController *modalNavigationController = [[UINavigationController alloc] initWithRootViewController:activationController];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:activationController];
         
-        [self.navigationController presentViewController:modalNavigationController animated:NO completion:NULL];
+        self.deckController.centerController = navigationController;
     }
     else {
         MVPinViewController *pinController = [[MVPinViewController alloc] initWithNibName:@"MVPinViewController" bundle:[NSBundle mainBundle]];
         pinController.pinScreenState = MVPinLoginStateLogin;
-        UINavigationController *modalNavigationController = [[UINavigationController alloc] initWithRootViewController:pinController];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:pinController];
         
-        [self.navigationController presentViewController:modalNavigationController animated:NO completion:NULL];
+        self.deckController.centerController = navigationController;
     }
     
     return YES;

@@ -49,9 +49,6 @@
     self.smsProgressBar.progress = 0.0f;
     
     [self.view addSubview:self.smsProgressBar];
-        
-//    UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemUndo target:self action:@selector(resetApp)];
-//    self.navigationItem.leftBarButtonItem = resetButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,20 +85,20 @@
     UILabel *dataLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 160, 280, 25)];
     dataLabel.textAlignment = NSTextAlignmentCenter;
     dataLabel.text = [NSString stringWithFormat:@"%@ %@",
-                      [NSByteCountFormatter stringFromByteCount:self.balance.dataNow.longLongValue countStyle:NSByteCountFormatterCountStyleDecimal], NSLocalizedString(@"remaining", @"... remaining")];
+                      [NSByteCountFormatter stringFromByteCount:self.balance.dataNow.longLongValue countStyle:NSByteCountFormatterCountStyleDecimal], NSLocalizedString(@"remaining", @"... remaining bytes caption")];
     dataLabel.textColor = [UIColor darkGrayColor];
     [self.view addSubview:dataLabel];
 
     // Text above porgessbar
     UILabel *smsLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 240, 280, 25)];
     smsLabel.textAlignment = NSTextAlignmentCenter;
-    smsLabel.text = [NSString stringWithFormat:@"%@ %@", self.balance.smsNow, NSLocalizedString(@"SMS remaining", @"... remaining")];
+    smsLabel.text = [NSString stringWithFormat:@"%@ %@", self.balance.smsNow, NSLocalizedString(@"SMS remaining", @"... remaining text messages caption")];
     smsLabel.textColor = [UIColor darkGrayColor];
     [self.view addSubview:smsLabel];
     
     UILabel *creditLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 270, 280, 25)];
     creditLabel.textAlignment = NSTextAlignmentCenter;
-    creditLabel.text = [NSString stringWithFormat:@"Saldo %@",[numberFormatter stringFromNumber:self.balance.credit]];
+    creditLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Balance %@", @"Text surrounding remaining balance"), [numberFormatter stringFromNumber:self.balance.credit]];
     creditLabel.textColor = [UIColor darkGrayColor];
     [self.view addSubview:creditLabel];
     

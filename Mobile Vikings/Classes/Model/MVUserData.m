@@ -42,6 +42,10 @@
                                                 password:passCode
                                                    error:error];
     
+    if (decryptedUserName == nil || decryptedPassWord == nil) {
+        return nil;
+    }
+    
     NSDictionary *credentials = @{@"userName" : [NSKeyedUnarchiver unarchiveObjectWithData:decryptedUserName],
                                   @"passWord" : [NSKeyedUnarchiver unarchiveObjectWithData:decryptedPassWord]};
 
@@ -60,10 +64,11 @@
                                             withSettings:kRNCryptorAES256Settings
                                                 password:passCode
                                                    error:error];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:@YES forKey:@"isActivated"];
     
 #if TARGET_IPHONE_SIMULATOR
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:encryptedUserName forKey:@"encryptedUserName"];
     [userDefaults setObject:encryptedPassword forKey:@"encryptedPassWord"];
     
@@ -94,7 +99,12 @@
     [keychain resetKeychainItem];
     
 #endif
+}
 
++ (BOOL)isActivated {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *isActivated = [userDefaults objectForKey:@"isActivated"];
+    return isActivated.boolValue;
 }
 
 @end

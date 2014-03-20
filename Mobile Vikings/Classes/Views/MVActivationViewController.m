@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"Activate";
+    self.title = NSLocalizedString(@"Activate", @"Activate screen title");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +46,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"Please enter your Mobile Vikings username and password, so you can check your balance with this app!";
+        return NSLocalizedString(@"Please enter your Mobile Vikings username and password, so you can check your balance with this app!", @"Explanatory text on activation screen");
     }
 
     return nil;
@@ -80,12 +80,12 @@
         cell.textField.delegate = self;
         
         if (indexPath.row == 0) {
-            cell.textField.placeholder = @"Username";
+            cell.textField.placeholder = NSLocalizedString(@"Username", @"Username placeholder on activation screen");
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             [cell.textField becomeFirstResponder];
         }
         else {
-            cell.textField.placeholder = @"Password";
+            cell.textField.placeholder = NSLocalizedString(@"Password", @"Password placeholder on activation screen");
             cell.textField.keyboardType = UIKeyboardTypeAlphabet;
             cell.textField.secureTextEntry = YES;
         }
@@ -94,7 +94,7 @@
     }
     else {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        cell.textLabel.text = @"Inloggen";
+        cell.textLabel.text = NSLocalizedString(@"Login", @"Login button caption on activation screen");
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         
         return cell;

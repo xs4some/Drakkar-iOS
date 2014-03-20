@@ -11,6 +11,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import <Toast+UIView.h>
 
+#import "MVActivationViewController.h"
+#import "MVBalanceViewController.h"
 #import "MVAppDelegate.h"
 #import "MVTokenService.h"
 #import "MVLoginService.h"
@@ -19,10 +21,12 @@
 @interface MVPinViewController ()
 
 @property (nonatomic, strong) NSString *pin;
+@property (nonatomic, assign) int pinTries;
 
 - (void)textFieldDidChange;
 - (void)processAccessCodeCreation;
 - (void)processLogin;
+- (void)openBalanceView;
 
 @end
 
@@ -38,13 +42,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.pinTries = 0;
     
     self.navigationItem.leftBarButtonItem = nil;
     
-    self.title = @"Access code";
+    self.title = NSLocalizedString(@"Access code", @"Title of access code screen");
     
     if (self.pinScreenState == MVPinLoginStateLogin) {
-        self.explanatoryText.text = NSLocalizedString(@"Please your access code.", @"Pin enter screen explanation text when logging in.");
+        self.explanatoryText.text = NSLocalizedString(@"Please enter your access code.", @"Pin enter screen explanation text when logging in.");
     }
     else {
         self.navigationItem.hidesBackButton = YES;
@@ -138,7 +144,6 @@
     }
 }
 
-
 - (void)processAccessCodeCreation {
     if ([self.pin isEqualToString:@""] || self.pin == nil) {
         self.pin = self.pinField.text;
@@ -169,7 +174,7 @@
             // Something went wrong whilst encrypting,
         }
 
-        [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+        [self openBalanceView];
     }
     else {
         self.explanatoryText.text = NSLocalizedString(@"Please enter an access code to protect your data.", @"Pin enter screen explanation text.");
@@ -211,7 +216,7 @@
         else {            
             [loginService loginCompletionBlock:^{
                 [self.view hideToastActivity];
-                [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+                [self openBalanceView];
             } onError:^(NSError *error) {
                 [self.view hideToastActivity];
                 NSLog(@"%@", error);
@@ -219,8 +224,34 @@
         }
     } onError:^(NSError *error) {
         [self.view hideToastActivity];
-        [self.view makeToast:NSLocalizedString(@"Unable to connect to server, please try again later", @"Network error toast shown on Activation screen")];
+        if (error.code == kCFErrorHTTPBadCredentials) {
+            if (self.pinTries > 3) {
+                [self.view makeToast:NSLocalizedString(@"Reseting app", @"App is being reset toast")];
+                [MVUserData removeCredentials];
+                MVActivationViewController *activationViewController = [[MVActivationViewController alloc] initWithNibName:@"MVActivationViewController" bundle:[NSBundle mainBundle]];
+                
+                UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:activationViewController];
+                ApplicationDelegate.deckController.centerController = navigationController;
+                [ApplicationDelegate.deckController closeLeftViewAnimated:YES];
+            }
+            else {
+                self.pinTries ++;
+                [self.view makeToast:NSLocalizedString(@"Invalid credentials, try again", @"Invalid credential error toast shown on Activation screen")];
+            }
+        }
+        else {
+            [self.view makeToast:NSLocalizedString(@"Unable to connect to server, please try again later", @"Network error toast shown on Activation screen")];
+        }
     }];
+}
+
+- (void)openBalanceView {
+    [ApplicationDelegate.deckController openLeftViewAnimated:YES];
+    MVBalanceViewController *balanceViewController = [[MVBalanceViewController alloc] initWithNibName:@"MVBalanceViewController" bundle:[NSBundle mainBundle]];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:balanceViewController];
+    ApplicationDelegate.deckController.centerController = navigationController;
+    [ApplicationDelegate.deckController closeLeftViewAnimated:YES];
 }
 
 @end
