@@ -12,6 +12,7 @@
 #import <Toast+UIView.h>
 
 #import "MVAppDelegate.h"
+#import "MVPinViewController.h"
 #import "MVBalanceService.h"
 #import "MVBalance.h"
 #import "UIColor+RGB.h"
@@ -24,7 +25,7 @@
 @property (nonatomic, strong) TYMProgressBarView *smsProgressBar;
 
 - (void)drawBalanceBars;
-- (void)resetApp;
+- (void)getData;
 
 @end
 
@@ -49,6 +50,13 @@
     self.smsProgressBar.progress = 0.0f;
     
     [self.view addSubview:self.smsProgressBar];
+    
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Menu", @"Menu button caption") style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+    self.navigationItem.leftBarButtonItem = menuButton;
+    
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Refresh", @"Refresh button caption on balance screen") style:UIBarButtonItemStylePlain target:self action:@selector(getData)];
+    
+    self.navigationItem.rightBarButtonItem = refreshButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,21 +68,38 @@
     [super viewDidAppear:animated];
     
     if (ApplicationDelegate.token.value != nil) {
-        [self.view makeToastActivity];
-        MVBalanceService *balanceService = [[MVBalanceService alloc] initServiceWithToken:ApplicationDelegate.token.value];
-        
-        [balanceService balanceCompletionBlock:^(NSDictionary *balance) {
-            self.balance = [[MVBalance alloc] initWithDictionary:balance];
-            [self.view hideToastActivity];
-            [self drawBalanceBars];
-        } onError:^(NSError *error) {
-            NSLog(@"%@", error);
-            [self.view hideToastActivity];
-        }];
+        [self getData];
     }
 }
 
 #pragma mark - class methods
+
+- (void)showMenu {
+    [ApplicationDelegate.deckController toggleLeftViewAnimated:YES];
+}
+
+- (void)getData {
+    [self.view makeToastActivity];
+    MVBalanceService *balanceService = [[MVBalanceService alloc] initServiceWithToken:ApplicationDelegate.token.value];
+    
+    [balanceService balanceCompletionBlock:^(NSDictionary *balance) {
+        self.balance = [[MVBalance alloc] initWithDictionary:balance];
+        [self.view hideToastActivity];
+        [self drawBalanceBars];
+    } onError:^(NSError *error) {
+        [self.view hideToastActivity];
+        if (error.code == kCFErrorHTTPConnectionLost) {
+            MVPinViewController *pinViewController = [[MVPinViewController alloc] initWithNibName:@"MVPinViewController" bundle:[NSBundle mainBundle]];
+            
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:pinViewController];
+            ApplicationDelegate.deckController.centerController = navigationController;
+            [ApplicationDelegate.deckController closeLeftViewAnimated:YES];
+        }
+        else {
+            
+        }
+    }];
+}
 
 - (void)drawBalanceBars {
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
@@ -115,10 +140,6 @@
     [UIView beginAnimations:@"SMSProgressBarAnimation" context:nil];
     self.smsProgressBar.progress = (self.balance.smsNow.floatValue / self.balance.smsFull.floatValue);
     [UIView commitAnimations];
-}
-
-- (void)resetApp {
-    
 }
 
 @end

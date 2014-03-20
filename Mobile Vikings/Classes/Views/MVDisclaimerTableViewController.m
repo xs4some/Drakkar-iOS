@@ -8,6 +8,8 @@
 
 #import "MVDisclaimerTableViewController.h"
 
+#import "MVAppDelegate.h"
+
 @interface MVDisclaimerTableViewController ()
 
 @property (nonatomic, strong) NSDictionary *tableData;
@@ -24,6 +26,9 @@
     [self loadData];
     
     self.title = self.tableData[@"Title"];
+    
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Menu", @"Menu button caption") style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+    self.navigationItem.leftBarButtonItem = menuButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,6 +85,10 @@
 }
 
 #pragma mark - class methods
+
+- (void)showMenu {
+    [ApplicationDelegate.deckController toggleLeftViewAnimated:YES];
+}
 
 - (void)loadData {
     self.tableData = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Acknowledgements" ofType:@"plist"]];

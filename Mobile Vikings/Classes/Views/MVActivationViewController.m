@@ -10,6 +10,7 @@
 
 #import <Toast+UIView.h>
 
+#import "MVAppDelegate.h"
 #import "MVPinViewController.h"
 #import "MVLoginCell.h"
 #import "MVRegisterService.h"
@@ -17,6 +18,7 @@
 
 @interface MVActivationViewController ()
 
+- (void)showMenu;
 - (void)verifyLogin;
 
 @end
@@ -35,6 +37,9 @@
     [super viewDidLoad];
 
     self.title = NSLocalizedString(@"Activate", @"Activate screen title");
+    
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Menu", @"Menu button caption") style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+    self.navigationItem.leftBarButtonItem = menuButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,6 +121,10 @@
 }
 
 #pragma mark - Class methods
+
+- (void)showMenu {
+    [ApplicationDelegate.deckController toggleLeftViewAnimated:YES];
+}
 
 - (void)verifyLogin {
     MVLoginCell *userNameCell = (MVLoginCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];

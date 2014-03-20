@@ -34,6 +34,10 @@
                 NSDictionary *balance = (NSDictionary *)completedOperation.responseJSON;
                 completionBlock(balance);
             }
+            else {
+                NSError *error = [NSError errorWithDomain:@"MobileVikings" code:kCFErrorHTTPConnectionLost userInfo:nil];
+                errorBlock(error);
+            }
         }
     } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
         errorBlock(error);

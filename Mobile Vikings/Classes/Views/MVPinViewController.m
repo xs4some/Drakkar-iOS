@@ -27,6 +27,7 @@
 - (void)processAccessCodeCreation;
 - (void)processLogin;
 - (void)openBalanceView;
+- (void)showMenu;
 
 @end
 
@@ -66,6 +67,9 @@
     self.pin3.layer.cornerRadius = 5.0f;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange) name:UITextFieldTextDidChangeNotification object:nil];
+ 
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Menu", @"Menu button caption") style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+    self.navigationItem.leftBarButtonItem = menuButton;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -93,6 +97,10 @@
 }
 
 #pragma mark - Class methods
+
+- (void)showMenu {
+    [ApplicationDelegate.deckController toggleLeftViewAnimated:YES];
+}
 
 - (void)textFieldDidChange {
     switch (self.pinField.text.length) {
