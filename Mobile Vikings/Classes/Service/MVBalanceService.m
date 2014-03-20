@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 XS4some. All rights reserved.
 //
 
-#define kBalanceUrl @"https://mobilevikings.com/nld/nl/mysims/sim/736/balance/json/"
+#define kBalanceNlUrl @"https://mobilevikings.com/nld/nl/mysims/sim/736/balance/json/"
+#define kBalanceEnUrl @"https://mobilevikings.com/nld/en/mysims/sim/736/balance/json/"
 
 #import "MVBalanceService.h"
 #import "MVAppDelegate.h"
@@ -14,7 +15,8 @@
 @implementation MVBalanceService
 
 - (id)initServiceWithToken:(NSString *)token {
-    self = [super initWithURLString:kBalanceUrl params:nil httpMethod:@"GET"];
+    NSString *balanceUrl = [[[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode] isEqualToString:@"nl"] ? kBalanceNlUrl : kBalanceEnUrl;
+    self = [super initWithURLString:balanceUrl params:nil httpMethod:@"GET"];
     
     NSDictionary *headers= @{@"X-CSRFToken" : token,
                              @"X-Requested-With" : @"XMLHttpRequest",
