@@ -66,6 +66,9 @@
         
         self.deckController.centerController = navigationController;
     }
+        
+        self.internetReachability = [Reachability reachabilityForInternetConnection];
+        [self.internetReachability startNotifier];
     
     return YES;
 }

@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import <IIViewDeckController.h>
 #import <MKNetworkKit/MKNetworkKit.h>
+#import <Reachability/Reachability.h>
 
 #import "MVBalance.h"
 
@@ -22,5 +23,6 @@
 @property (strong, nonatomic) MVBalance *balance;
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (nonatomic, strong) IIViewDeckController *deckController;
+@property (nonatomic, strong) Reachability *internetReachability;
 
 @end

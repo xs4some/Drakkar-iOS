@@ -22,12 +22,16 @@
 
 @property (nonatomic, strong) NSString *pin;
 @property (nonatomic, assign) int pinTries;
+@property (nonatomic, assign) NetworkStatus networkStatus;
 
 - (void)textFieldDidChange;
 - (void)processAccessCodeCreation;
 - (void)processLogin;
 - (void)openBalanceView;
 - (void)showMenu;
+- (void)registerNotifications;
+
+- (void)connectionChanged:(NSNotification *)notification;
 
 @end
 
@@ -65,21 +69,15 @@
     self.pin1.layer.cornerRadius = 5.0f;
     self.pin2.layer.cornerRadius = 5.0f;
     self.pin3.layer.cornerRadius = 5.0f;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange) name:UITextFieldTextDidChangeNotification object:nil];
  
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Menu", @"Menu button caption") style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     self.navigationItem.leftBarButtonItem = menuButton;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    
+    self.networkStatus = [ApplicationDelegate.internetReachability currentReachabilityStatus];
+    
+    [self registerNotifications];
     
     [self.pinField becomeFirstResponder];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 - (void)dealloc {
@@ -96,10 +94,44 @@
     return YES;
 }
 
+#pragma mark - Notifications
+
+- (void)connectionChanged:(NSNotification *)notification {
+    self.networkStatus = [ApplicationDelegate.internetReachability currentReachabilityStatus];
+    if (self.networkStatus == NotReachable) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
+        [self resetPinEntry];
+        UIAlertView *noConnectionAlert = [[UIAlertView alloc] initWithTitle:nil
+                                                                    message:NSLocalizedString(@"Connection lost", @"Alert shown when there's no connection available.")
+                                                                   delegate:nil
+                                                          cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                                                          otherButtonTitles:nil];
+        [noConnectionAlert show];
+    }
+    else {
+        [self.pinField becomeFirstResponder];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange) name:UITextFieldTextDidChangeNotification object:nil];
+    }
+}
 #pragma mark - Class methods
 
+- (void)registerNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange) name:UITextFieldTextDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionChanged:) name:kReachabilityChangedNotification object:nil];
+}
+
 - (void)showMenu {
+    [self.pinField resignFirstResponder];
     [ApplicationDelegate.deckController toggleLeftViewAnimated:YES];
+}
+
+- (void)resetPinEntry {
+    self.pin0.backgroundColor = [UIColor whiteColor];
+    self.pin1.backgroundColor = [UIColor whiteColor];
+    self.pin2.backgroundColor = [UIColor whiteColor];
+    self.pin3.backgroundColor = [UIColor whiteColor];
+    self.pin = @"";
+    self.pinField.text = @"";
 }
 
 - (void)textFieldDidChange {
@@ -186,12 +218,7 @@
     }
     else {
         self.explanatoryText.text = NSLocalizedString(@"Please enter an access code to protect your data.", @"Pin enter screen explanation text.");
-        self.pin0.backgroundColor = [UIColor whiteColor];
-        self.pin1.backgroundColor = [UIColor whiteColor];
-        self.pin2.backgroundColor = [UIColor whiteColor];
-        self.pin3.backgroundColor = [UIColor whiteColor];
-        self.pin = @"";
-        self.pinField.text = @"";
+        [self resetPinEntry];
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
                                                             message:NSLocalizedString(@"Both access codes should be the same. Please try again", @"")
@@ -203,6 +230,7 @@
 }
 
 - (void)processLogin {
+    [self.pinField resignFirstResponder];
     [self.view makeToastActivity];
     MVTokenService *tokenService = [[MVTokenService alloc] initTokenService];
     [tokenService tokenCompletionBlock:^() {

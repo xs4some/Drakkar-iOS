@@ -18,8 +18,14 @@
 
 @interface MVActivationViewController ()
 
+@property (nonatomic, assign) NetworkStatus networkStatus;
+
 - (void)showMenu;
 - (void)verifyLogin;
+- (void)registerForNotifications;
+- (void)dismissKeyboard;
+
+- (void)connectionChanged:(NSNotification *)notification;
 
 @end
 
@@ -40,11 +46,18 @@
     
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Menu", @"Menu button caption") style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     self.navigationItem.leftBarButtonItem = menuButton;
+    
+    self.networkStatus = [ApplicationDelegate.internetReachability currentReachabilityStatus];
+    [self registerForNotifications];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UITableView datasource
@@ -102,6 +115,13 @@
         cell.textLabel.text = NSLocalizedString(@"Login", @"Login button caption on activation screen");
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         
+        if (self.networkStatus == NotReachable) {
+            cell.textLabel.textColor = [UIColor lightGrayColor];
+        }
+        else {
+            cell.textLabel.textColor = [UIColor blackColor];
+        }
+        
         return cell;
     }
 }
@@ -111,18 +131,48 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    [self dismissKeyboard];
+    
+    
     if (indexPath.section == 0) {
         MVLoginCell *cell = (MVLoginCell *)[tableView cellForRowAtIndexPath:indexPath];
         [cell.textField becomeFirstResponder];
     }
     else {
-        [self verifyLogin];
+        if (self.networkStatus == NotReachable) {
+            [self.tableView makeToast:NSLocalizedString(@"No connection available", @"Toast shown when tapping activate on activation screen and there's no conenction available")];
+        }
+        else {
+            [self verifyLogin];
+        }
     }
+}
+
+#pragma marl - Notification methods
+
+- (void)connectionChanged:(NSNotification *)notification {
+    self.networkStatus = [ApplicationDelegate.internetReachability currentReachabilityStatus];
+    
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Class methods
 
+- (void)dismissKeyboard {
+    MVLoginCell *userNameCell = (MVLoginCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    MVLoginCell *passWordCell = (MVLoginCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    
+    [userNameCell.textField resignFirstResponder];
+    [passWordCell.textField resignFirstResponder];
+}
+
+- (void)registerForNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionChanged:) name:kReachabilityChangedNotification object:nil];
+}
+
 - (void)showMenu {
+    [self dismissKeyboard];
+
     [ApplicationDelegate.deckController toggleLeftViewAnimated:YES];
 }
 
@@ -130,9 +180,6 @@
     MVLoginCell *userNameCell = (MVLoginCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     MVLoginCell *passWordCell = (MVLoginCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
 
-    [userNameCell.textField resignFirstResponder];
-    [passWordCell.textField resignFirstResponder];
-    
     NSString *userName = userNameCell.textField.text;
     NSString *passWord = passWordCell.textField.text;
     
@@ -156,6 +203,7 @@
                 [self.navigationController pushViewController:pinViewController animated:YES];
                 
             } onError:^(NSError *error) {
+                [self.view hideToastActivity];
                 switch (error.code) {
                     case 401:
                     case 403:
