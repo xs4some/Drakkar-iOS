@@ -9,13 +9,13 @@
 #import "MVTokenService.h"
 #import "MVAppDelegate.h"
 
-#define kLoginUrl @"https://mobilevikings.com/nld/nl/account/login/?"
-#define kErrorDomain @"https://www.mobilevikings.com/"
+#define kLoginUrl @"https://mobilevikings.nl/en/account/login/?"
+#define kErrorDomain @"https://www.mobilevikings.nl/"
 
 @implementation MVTokenService
 
 - (id)initTokenService {
-    NSDictionary *headers = @{ @"Referer" : @"https://www.mobilevikings.com/"};
+    NSDictionary *headers = @{ @"Referer" : @"https://www.mobilevikings.nl/"};
     
     self = [super initWithURLString:kLoginUrl params:nil httpMethod:@"GET"];
     

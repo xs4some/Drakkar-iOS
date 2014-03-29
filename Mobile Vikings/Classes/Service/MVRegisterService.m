@@ -9,8 +9,8 @@
 #import "MVRegisterService.h"
 #import "MVAppDelegate.h"
 
-#define kLoginUrl @"https://mobilevikings.com/nld/nl/account/login/?"
-#define kErrorDomain @"https://www.mobilevikings.com/"
+#define kLoginUrl @"https://mobilevikings.nl/en/account/login/?"
+#define kErrorDomain @"https://www.mobilevikings.nl/"
 
 @interface MVRegisterService ()
 

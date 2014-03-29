@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 XS4some. All rights reserved.
 //
 
-#define kBalanceNlUrl @"https://mobilevikings.com/nld/nl/mysims/sim/736/balance/json/"
-#define kBalanceEnUrl @"https://mobilevikings.com/nld/en/mysims/sim/736/balance/json/"
+#define kBalanceNlUrl @"https://mobilevikings.nl/nl/mysims/sim/736/balance/json/"
+#define kBalanceEnUrl @"https://mobilevikings.nl/en/mysims/sim/736/balance/json/"
 
 #import "MVBalanceService.h"
 #import "MVAppDelegate.h"
@@ -20,7 +20,7 @@
     
     NSDictionary *headers= @{@"X-CSRFToken" : token,
                              @"X-Requested-With" : @"XMLHttpRequest",
-                             @"Referer" : @"https://mobilevikings.com/nld/nl/mysims/"};
+                             @"Referer" : @"https://mobilevikings.nl/en/mysims/"};
     
     [self addHeaders:headers];
     
