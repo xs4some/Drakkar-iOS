@@ -39,6 +39,8 @@
             }
             NSError *error = [NSError errorWithDomain:kErrorDomain code:500 userInfo:@{@"Reason": NSLocalizedString(@"Session token not found in response! Unable to login", @"Error stating session token cannot be found")}];
             [ApplicationDelegate.engine emptyCache];
+            ApplicationDelegate.token = nil;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"MVLoggedInStatusChangesNotification" object:nil];
             errorBlock(error);
         }
     } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {

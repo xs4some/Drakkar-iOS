@@ -55,6 +55,7 @@
                 errorBlock(error);
             }
             else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"MVLoggedInStatusChangesNotification" object:nil];
                 completionBlock();
             }
         }

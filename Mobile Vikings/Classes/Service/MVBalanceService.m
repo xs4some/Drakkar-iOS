@@ -35,11 +35,17 @@
                 completionBlock(balance);
             }
             else {
+                [ApplicationDelegate.engine emptyCache];
+                ApplicationDelegate.token = nil;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"MVLoggedInStatusChangesNotification" object:nil];
                 NSError *error = [NSError errorWithDomain:@"MobileVikings" code:kCFErrorHTTPConnectionLost userInfo:nil];
                 errorBlock(error);
             }
         }
     } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
+        [ApplicationDelegate.engine emptyCache];
+        ApplicationDelegate.token = nil;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"MVLoggedInStatusChangesNotification" object:nil];
         errorBlock(error);
     }];
     

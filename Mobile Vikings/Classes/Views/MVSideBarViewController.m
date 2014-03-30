@@ -19,6 +19,10 @@
 
 @interface MVSideBarViewController ()
 
+- (void)registerForNotifications;
+- (void)MVLoggedInStatusChangesNotification:(NSNotification *)notification;
+- (void)setUpTableData;
+
 @property (nonatomic, strong) NSMutableArray *tableData;
 
 @end
@@ -40,6 +44,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Table view data source
@@ -104,6 +112,28 @@
                 }
             }
             else {
+                [self.view makeToast:NSLocalizedString(@"Logged out", @"Toast shown when side bar option 'logout' is tapped")];
+                [ApplicationDelegate.engine emptyCache];
+            }
+            
+        }
+        else if (indexPath.row == 1) {
+            if (ApplicationDelegate.token == nil) {
+                if ([MVUserData isActivated]) {
+                    MVPinViewController *pinViewController = [[MVPinViewController alloc] initWithNibName:@"MVPinViewController" bundle:[NSBundle mainBundle]];
+                    
+                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:pinViewController];
+                    ApplicationDelegate.deckController.centerController = navigationController;
+                    [ApplicationDelegate.deckController closeLeftViewAnimated:YES];                }
+                else {
+                    MVActivationViewController *activationViewController = [[MVActivationViewController alloc] initWithNibName:@"MVActivationViewController" bundle:[NSBundle mainBundle]];
+                    
+                    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:activationViewController];
+                    ApplicationDelegate.deckController.centerController = navigationController;
+                    [ApplicationDelegate.deckController closeLeftViewAnimated:YES];
+                }
+            }
+            else {
                 MVBalanceViewController *balanceViewController = [[MVBalanceViewController alloc] initWithNibName:@"MVBalanceViewController" bundle:[NSBundle mainBundle]];
                 
                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:balanceViewController];
@@ -133,11 +163,45 @@
 
 #pragma mark - Class methods
 
+- (void)registerForNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MVLoggedInStatusChangesNotification:) name:@"MVLoggedInStatusChangesNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ReachabilityChangedNotification:) name:kReachabilityChangedNotification object:nil];
+}
+
+- (void)ReachabilityChangedNotification:(NSNotification *)notification {
+    if (ApplicationDelegate.internetReachability.currentReachabilityStatus == NotReachable) {
+        ApplicationDelegate.token = nil;
+        [ApplicationDelegate.engine emptyCache];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"MVLoggedInStatusChangesNotification" object:nil];
+    }
+}
+
+- (void)MVLoggedInStatusChangesNotification:(NSNotification *)notification {
+    [self setUpTableData];
+    
+    [self.tableView reloadData];
+}
+
 - (void)setUpTableData {
     self.tableData = [NSMutableArray array];
     
-    NSArray *functions = @[@{@"title" : NSLocalizedString(@"Balance", @"Title of side bar item Balance")},
-                           @{@"title" : NSLocalizedString(@"History", @"Title of side bar item History")}];
+    NSArray *functions = nil;
+    
+    if (ApplicationDelegate.token == nil) {
+        functions = @[
+                      @{@"title" : NSLocalizedString(@"Login", @"Title of side bar item Login")},
+                      @{@"title" : NSLocalizedString(@"Balance", @"Title of side bar item Balance")},
+//                      @{@"title" : NSLocalizedString(@"History", @"Title of side bar item History")},
+                      ];
+    }
+    else {
+        functions = @[
+                      @{@"title" : NSLocalizedString(@"Logout", @"Title of side bar item Logout")},
+                      @{@"title" : NSLocalizedString(@"Balance", @"Title of side bar item Balance")},
+//                      @{@"title" : NSLocalizedString(@"History", @"Title of side bar item History")},
+                      ];
+
+    }
     
     [self.tableData addObject:functions];
     
