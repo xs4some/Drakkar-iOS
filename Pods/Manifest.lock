@@ -5,7 +5,7 @@ PODS:
   - Reachability (3.1.1)
   - RNCryptor (2.2)
   - Toast (2.2)
-  - TYMProgressBarView (0.2.0)
+  - TYMProgressBarView (0.3.0)
   - ViewDeck (2.3.1)
 
 DEPENDENCIES:
@@ -22,7 +22,7 @@ SPEC CHECKSUMS:
   Reachability: be4883bb93f31e38266ae3365e5600a317aae735
   RNCryptor: 1420380792b33758d2414cf37af160ea2495e15c
   Toast: 4123a86be86b619e118a134510ff6d00d9bd47e0
-  TYMProgressBarView: 258323aacf3e9820e29f8c5cb83be0c5a4c241df
+  TYMProgressBarView: c847e03c74a7f28d10f9b1d9e7db544a9ea2e529
   ViewDeck: 2cdc67c4b41a10cafc7556b982f028409e33604d
 
 COCOAPODS: 0.29.0

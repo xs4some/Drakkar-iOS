@@ -17,6 +17,7 @@
 #import "MVTokenService.h"
 #import "MVLoginService.h"
 #import "MVUserData.h"
+//#import "IIViewDeckController+Notifications.h"
 
 @interface MVPinViewController ()
 
@@ -32,6 +33,8 @@
 - (void)registerNotifications;
 
 - (void)connectionChanged:(NSNotification *)notification;
+- (void)sideBarDidAppear:(NSNotification *)notification;
+- (void)sideBarDidDisppear:(NSNotification *)notification;
 
 @end
 
@@ -113,11 +116,22 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange) name:UITextFieldTextDidChangeNotification object:nil];
     }
 }
+- (void)sideBarDidAppear:(NSNotification *)notification {
+    [self.pinField resignFirstResponder];
+}
+
+- (void)sideBarDidDisppear:(NSNotification *)notification {
+    [self.pinField becomeFirstResponder];
+}
+
+
 #pragma mark - Class methods
 
 - (void)registerNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange) name:UITextFieldTextDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectionChanged:) name:kReachabilityChangedNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sideBarDidAppear:) name:kIIViewDeckControllerNotificationDidOpenViewSide object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sideBarDidDisppear:) name:kIIViewDeckControllerNotificationDidCloseViewSide object:nil];
 }
 
 - (void)showMenu {
@@ -211,10 +225,13 @@
         [MVUserData storeCredentials:credentials withPassCode:self.pin andError:&error];
         
         if (error != nil) {
-            // Something went wrong whilst encrypting,
+            // TODO: Something went wrong whilst encrypting, handle it
         }
-
-        [self openBalanceView];
+        else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"MVLoggedInStatusChangesNotification" object:nil];
+            
+            [self openBalanceView];
+        }
     }
     else {
         self.explanatoryText.text = NSLocalizedString(@"Please enter an access code to protect your data.", @"Pin enter screen explanation text.");

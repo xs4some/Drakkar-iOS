@@ -14,6 +14,7 @@
 #import "MVActivationViewController.h"
 #import "MVPinViewController.h"
 #import "MVBalanceViewController.h"
+//#import "IIViewDeckController+Notifications.h"
 
 @interface MVAppDelegate ()
 
@@ -36,6 +37,8 @@
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:balanceViewController];
 
     self.deckController = [[IIViewDeckController alloc] initWithCenterViewController:self.navigationController leftViewController:sideBarViewController];
+//    IIViewDeckControllerNotifications *deckNotifications = [[IIViewDeckControllerNotifications alloc] init];
+//    self.deckController.delegate = deckNotifications;
 
     self.window.rootViewController = self.deckController;
     [self.window makeKeyAndVisible];

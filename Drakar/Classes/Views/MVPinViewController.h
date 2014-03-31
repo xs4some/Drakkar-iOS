@@ -13,6 +13,8 @@ typedef NS_ENUM(NSUInteger, MVPinScreenState) {
     MVPinScreenStateActivate,
 };
 
+@class IIViewDeckControllerNotifications;
+
 @interface MVPinViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet UILabel *explanatoryText;
