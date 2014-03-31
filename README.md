@@ -1,5 +1,5 @@
-Mobile Viking NL iOS Client
-===========================
+Drakkar iOS
+===========
 
 This app is made to check the balance and remaining data and text messages for Mobile Vikings users in the Netherlands.
 
@@ -12,19 +12,24 @@ Features
 
 Planned features
 ----------------
-* Add logout button; 
-* Add reset button;
 * Access usages history;
-* Show used libraries;
+* Top-up your account;
+* Add support for BE users;
 
 Used 3rd party libraries:
 -------------------------
 * [MKNetworkKit][mknetworkkit]
 * [RNCryptor][rncryptor]
 * [KeychainItemWrapper][keychainitemwrapper]
+* [Reachability][reachability]
+* [TYMProgressBarView][tymprogressbarview]
+* [Toast][toast]
 * [ViewDeck][viewdeck]
 
 [mknetworkkit]: https://github.com/MugunthKumar/MKNetworkKit
 [rncryptor]: https://github.com/RNCryptor/RNCryptor
 [keychainitemwrapper]: https://gist.github.com/3376201
 [viewdeck]: https://github.com/Inferis/ViewDeck
+[reachability]: https://github.com/tonymillion/Reachability
+[tymprogressbarview]: https://github.com/yimingtang/TYMProgressBarView
+[toast]: https://github.com/scalessec/Toast

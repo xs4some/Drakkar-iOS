@@ -1,0 +1,760 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6241881E187F265300B3797D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6241881D187F265300B3797D /* Foundation.framework */; };
+		62418820187F265300B3797D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6241881F187F265300B3797D /* CoreGraphics.framework */; };
+		62418822187F265300B3797D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62418821187F265300B3797D /* UIKit.framework */; };
+		6241883D187F265300B3797D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6241883C187F265300B3797D /* XCTest.framework */; };
+		6241883E187F265300B3797D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6241881D187F265300B3797D /* Foundation.framework */; };
+		6241883F187F265300B3797D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62418821187F265300B3797D /* UIKit.framework */; };
+		C89DEDFA18E93A3B0012D73E /* MVLoginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDD418E93A3B0012D73E /* MVLoginCell.m */; };
+		C89DEDFB18E93A3B0012D73E /* IIViewDeckController+Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDD718E93A3B0012D73E /* IIViewDeckController+Notifications.m */; };
+		C89DEDFC18E93A3B0012D73E /* UIColor+RGB.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDD918E93A3B0012D73E /* UIColor+RGB.m */; };
+		C89DEDFD18E93A3B0012D73E /* MVBalance.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDDC18E93A3B0012D73E /* MVBalance.m */; };
+		C89DEDFE18E93A3B0012D73E /* MVUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDDE18E93A3B0012D73E /* MVUserData.m */; };
+		C89DEDFF18E93A3B0012D73E /* MVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDE018E93A3B0012D73E /* MVAppDelegate.m */; };
+		C89DEE0018E93A3B0012D73E /* MVBalanceService.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDE318E93A3B0012D73E /* MVBalanceService.m */; };
+		C89DEE0118E93A3B0012D73E /* MVLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDE518E93A3B0012D73E /* MVLoginService.m */; };
+		C89DEE0218E93A3B0012D73E /* MVRegisterService.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDE718E93A3B0012D73E /* MVRegisterService.m */; };
+		C89DEE0318E93A3B0012D73E /* MVTokenService.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDE918E93A3B0012D73E /* MVTokenService.m */; };
+		C89DEE0418E93A3B0012D73E /* MVActivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDEC18E93A3B0012D73E /* MVActivationViewController.m */; };
+		C89DEE0518E93A3B0012D73E /* MVActivationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C89DEDED18E93A3B0012D73E /* MVActivationViewController.xib */; };
+		C89DEE0618E93A3B0012D73E /* MVBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDEF18E93A3B0012D73E /* MVBalanceViewController.m */; };
+		C89DEE0718E93A3B0012D73E /* MVBalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C89DEDF018E93A3B0012D73E /* MVBalanceViewController.xib */; };
+		C89DEE0818E93A3B0012D73E /* MVDisclaimerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDF218E93A3B0012D73E /* MVDisclaimerTableViewController.m */; };
+		C89DEE0918E93A3B0012D73E /* MVDisclaimerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C89DEDF318E93A3B0012D73E /* MVDisclaimerTableViewController.xib */; };
+		C89DEE0A18E93A3B0012D73E /* MVPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDF518E93A3B0012D73E /* MVPinViewController.m */; };
+		C89DEE0B18E93A3B0012D73E /* MVPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C89DEDF618E93A3B0012D73E /* MVPinViewController.xib */; };
+		C89DEE0C18E93A3B0012D73E /* MVSideBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEDF818E93A3B0012D73E /* MVSideBarViewController.m */; };
+		C89DEE0D18E93A3B0012D73E /* MVSideBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C89DEDF918E93A3B0012D73E /* MVSideBarViewController.xib */; };
+		C89DEE2618E93A4D0012D73E /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE0F18E93A4D0012D73E /* Acknowledgements.plist */; };
+		C89DEE2718E93A4D0012D73E /* Apache License.txt in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1218E93A4D0012D73E /* Apache License.txt */; };
+		C89DEE2818E93A4D0012D73E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1318E93A4D0012D73E /* LICENSE */; };
+		C89DEE2918E93A4D0012D73E /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1418E93A4D0012D73E /* Roboto-Black.ttf */; };
+		C89DEE2A18E93A4D0012D73E /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1518E93A4D0012D73E /* Roboto-BlackItalic.ttf */; };
+		C89DEE2B18E93A4D0012D73E /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1618E93A4D0012D73E /* Roboto-Bold.ttf */; };
+		C89DEE2C18E93A4D0012D73E /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1718E93A4D0012D73E /* Roboto-BoldItalic.ttf */; };
+		C89DEE2D18E93A4D0012D73E /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1818E93A4D0012D73E /* Roboto-Italic.ttf */; };
+		C89DEE2E18E93A4D0012D73E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1918E93A4D0012D73E /* Roboto-Light.ttf */; };
+		C89DEE2F18E93A4D0012D73E /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1A18E93A4D0012D73E /* Roboto-LightItalic.ttf */; };
+		C89DEE3018E93A4D0012D73E /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1B18E93A4D0012D73E /* Roboto-Medium.ttf */; };
+		C89DEE3118E93A4D0012D73E /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1C18E93A4D0012D73E /* Roboto-MediumItalic.ttf */; };
+		C89DEE3218E93A4D0012D73E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1D18E93A4D0012D73E /* Roboto-Regular.ttf */; };
+		C89DEE3318E93A4D0012D73E /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1E18E93A4D0012D73E /* Roboto-Thin.ttf */; };
+		C89DEE3418E93A4D0012D73E /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE1F18E93A4D0012D73E /* Roboto-ThinItalic.ttf */; };
+		C89DEE3518E93A4D0012D73E /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE2018E93A4D0012D73E /* RobotoCondensed-Bold.ttf */; };
+		C89DEE3618E93A4D0012D73E /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE2118E93A4D0012D73E /* RobotoCondensed-BoldItalic.ttf */; };
+		C89DEE3718E93A4D0012D73E /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE2218E93A4D0012D73E /* RobotoCondensed-Italic.ttf */; };
+		C89DEE3818E93A4D0012D73E /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE2318E93A4D0012D73E /* RobotoCondensed-Light.ttf */; };
+		C89DEE3918E93A4D0012D73E /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE2418E93A4D0012D73E /* RobotoCondensed-LightItalic.ttf */; };
+		C89DEE3A18E93A4D0012D73E /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE2518E93A4D0012D73E /* RobotoCondensed-Regular.ttf */; };
+		C89DEE3E18E93A580012D73E /* Drakkar-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE3B18E93A580012D73E /* Drakkar-Info.plist */; };
+		C89DEE3F18E93A580012D73E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEE3D18E93A580012D73E /* main.m */; };
+		C89DEE4118E93A6E0012D73E /* DrakkarTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C89DEE4018E93A6E0012D73E /* DrakkarTests-Info.plist */; };
+		C89DEE4318E93A740012D73E /* DrakarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C89DEE4218E93A740012D73E /* DrakarTests.m */; };
+		E0158D3F280C46B588E0E4C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92325C8BF0F04FCFB3D5DD31 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		62418840187F265300B3797D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62418812187F265200B3797D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62418819187F265300B3797D;
+			remoteInfo = "Mobile Vikings";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6241881A187F265300B3797D /* Drakkar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drakkar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6241881D187F265300B3797D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6241881F187F265300B3797D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		62418821187F265300B3797D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6241883B187F265300B3797D /* DrakkarTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrakkarTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6241883C187F265300B3797D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		92325C8BF0F04FCFB3D5DD31 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C89DEDD318E93A3B0012D73E /* MVLoginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLoginCell.h; sourceTree = "<group>"; };
+		C89DEDD418E93A3B0012D73E /* MVLoginCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLoginCell.m; sourceTree = "<group>"; };
+		C89DEDD618E93A3B0012D73E /* IIViewDeckController+Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IIViewDeckController+Notifications.h"; sourceTree = "<group>"; };
+		C89DEDD718E93A3B0012D73E /* IIViewDeckController+Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IIViewDeckController+Notifications.m"; sourceTree = "<group>"; };
+		C89DEDD818E93A3B0012D73E /* UIColor+RGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGB.h"; sourceTree = "<group>"; };
+		C89DEDD918E93A3B0012D73E /* UIColor+RGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGB.m"; sourceTree = "<group>"; };
+		C89DEDDB18E93A3B0012D73E /* MVBalance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVBalance.h; sourceTree = "<group>"; };
+		C89DEDDC18E93A3B0012D73E /* MVBalance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVBalance.m; sourceTree = "<group>"; };
+		C89DEDDD18E93A3B0012D73E /* MVUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVUserData.h; sourceTree = "<group>"; };
+		C89DEDDE18E93A3B0012D73E /* MVUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVUserData.m; sourceTree = "<group>"; };
+		C89DEDDF18E93A3B0012D73E /* MVAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVAppDelegate.h; sourceTree = "<group>"; };
+		C89DEDE018E93A3B0012D73E /* MVAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVAppDelegate.m; sourceTree = "<group>"; };
+		C89DEDE218E93A3B0012D73E /* MVBalanceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVBalanceService.h; sourceTree = "<group>"; };
+		C89DEDE318E93A3B0012D73E /* MVBalanceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVBalanceService.m; sourceTree = "<group>"; };
+		C89DEDE418E93A3B0012D73E /* MVLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLoginService.h; sourceTree = "<group>"; };
+		C89DEDE518E93A3B0012D73E /* MVLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLoginService.m; sourceTree = "<group>"; };
+		C89DEDE618E93A3B0012D73E /* MVRegisterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVRegisterService.h; sourceTree = "<group>"; };
+		C89DEDE718E93A3B0012D73E /* MVRegisterService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVRegisterService.m; sourceTree = "<group>"; };
+		C89DEDE818E93A3B0012D73E /* MVTokenService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVTokenService.h; sourceTree = "<group>"; };
+		C89DEDE918E93A3B0012D73E /* MVTokenService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVTokenService.m; sourceTree = "<group>"; };
+		C89DEDEB18E93A3B0012D73E /* MVActivationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVActivationViewController.h; sourceTree = "<group>"; };
+		C89DEDEC18E93A3B0012D73E /* MVActivationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVActivationViewController.m; sourceTree = "<group>"; };
+		C89DEDED18E93A3B0012D73E /* MVActivationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MVActivationViewController.xib; sourceTree = "<group>"; };
+		C89DEDEE18E93A3B0012D73E /* MVBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVBalanceViewController.h; sourceTree = "<group>"; };
+		C89DEDEF18E93A3B0012D73E /* MVBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVBalanceViewController.m; sourceTree = "<group>"; };
+		C89DEDF018E93A3B0012D73E /* MVBalanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MVBalanceViewController.xib; sourceTree = "<group>"; };
+		C89DEDF118E93A3B0012D73E /* MVDisclaimerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVDisclaimerTableViewController.h; sourceTree = "<group>"; };
+		C89DEDF218E93A3B0012D73E /* MVDisclaimerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVDisclaimerTableViewController.m; sourceTree = "<group>"; };
+		C89DEDF318E93A3B0012D73E /* MVDisclaimerTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MVDisclaimerTableViewController.xib; sourceTree = "<group>"; };
+		C89DEDF418E93A3B0012D73E /* MVPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVPinViewController.h; sourceTree = "<group>"; };
+		C89DEDF518E93A3B0012D73E /* MVPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVPinViewController.m; sourceTree = "<group>"; };
+		C89DEDF618E93A3B0012D73E /* MVPinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MVPinViewController.xib; sourceTree = "<group>"; };
+		C89DEDF718E93A3B0012D73E /* MVSideBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVSideBarViewController.h; sourceTree = "<group>"; };
+		C89DEDF818E93A3B0012D73E /* MVSideBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVSideBarViewController.m; sourceTree = "<group>"; };
+		C89DEDF918E93A3B0012D73E /* MVSideBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MVSideBarViewController.xib; sourceTree = "<group>"; };
+		C89DEE0F18E93A4D0012D73E /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
+		C89DEE1218E93A4D0012D73E /* Apache License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License.txt"; sourceTree = "<group>"; };
+		C89DEE1318E93A4D0012D73E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C89DEE1418E93A4D0012D73E /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		C89DEE1518E93A4D0012D73E /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C89DEE1618E93A4D0012D73E /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		C89DEE1718E93A4D0012D73E /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C89DEE1818E93A4D0012D73E /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		C89DEE1918E93A4D0012D73E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		C89DEE1A18E93A4D0012D73E /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		C89DEE1B18E93A4D0012D73E /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		C89DEE1C18E93A4D0012D73E /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		C89DEE1D18E93A4D0012D73E /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		C89DEE1E18E93A4D0012D73E /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		C89DEE1F18E93A4D0012D73E /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		C89DEE2018E93A4D0012D73E /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		C89DEE2118E93A4D0012D73E /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C89DEE2218E93A4D0012D73E /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
+		C89DEE2318E93A4D0012D73E /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
+		C89DEE2418E93A4D0012D73E /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
+		C89DEE2518E93A4D0012D73E /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		C89DEE3B18E93A580012D73E /* Drakkar-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Drakkar-Info.plist"; path = "Drakkar/Drakkar-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C89DEE3C18E93A580012D73E /* Drakkar-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Drakkar-Prefix.pch"; path = "Drakkar/Drakkar-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		C89DEE3D18E93A580012D73E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Drakkar/main.m; sourceTree = SOURCE_ROOT; };
+		C89DEE4018E93A6E0012D73E /* DrakkarTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "DrakkarTests-Info.plist"; path = "DrakkarTests/DrakkarTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C89DEE4218E93A740012D73E /* DrakarTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrakarTests.m; path = DrakkarTests/DrakarTests.m; sourceTree = SOURCE_ROOT; };
+		D2259AFAB9CE4086AD1B7158 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		62418817187F265300B3797D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62418820187F265300B3797D /* CoreGraphics.framework in Frameworks */,
+				62418822187F265300B3797D /* UIKit.framework in Frameworks */,
+				6241881E187F265300B3797D /* Foundation.framework in Frameworks */,
+				E0158D3F280C46B588E0E4C5 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62418838187F265300B3797D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6241883D187F265300B3797D /* XCTest.framework in Frameworks */,
+				6241883F187F265300B3797D /* UIKit.framework in Frameworks */,
+				6241883E187F265300B3797D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		62418811187F265200B3797D = {
+			isa = PBXGroup;
+			children = (
+				62418823187F265300B3797D /* Drakkar */,
+				62418842187F265300B3797D /* DrakkarTests */,
+				6241881C187F265300B3797D /* Frameworks */,
+				6241881B187F265300B3797D /* Products */,
+				D2259AFAB9CE4086AD1B7158 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		6241881B187F265300B3797D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6241881A187F265300B3797D /* Drakkar.app */,
+				6241883B187F265300B3797D /* DrakkarTest.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6241881C187F265300B3797D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6241881D187F265300B3797D /* Foundation.framework */,
+				6241881F187F265300B3797D /* CoreGraphics.framework */,
+				62418821187F265300B3797D /* UIKit.framework */,
+				6241883C187F265300B3797D /* XCTest.framework */,
+				92325C8BF0F04FCFB3D5DD31 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		62418823187F265300B3797D /* Drakkar */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEDD118E93A3B0012D73E /* Classes */,
+				C89DEE0E18E93A4D0012D73E /* Resources */,
+				62418824187F265300B3797D /* Supporting Files */,
+			);
+			name = Drakkar;
+			path = "Mobile Vikings";
+			sourceTree = "<group>";
+		};
+		62418824187F265300B3797D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEE3B18E93A580012D73E /* Drakkar-Info.plist */,
+				C89DEE3C18E93A580012D73E /* Drakkar-Prefix.pch */,
+				C89DEE3D18E93A580012D73E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		62418842187F265300B3797D /* DrakkarTests */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEE4218E93A740012D73E /* DrakarTests.m */,
+				62418843187F265300B3797D /* Supporting Files */,
+			);
+			name = DrakkarTests;
+			path = "Mobile VikingsTests";
+			sourceTree = "<group>";
+		};
+		62418843187F265300B3797D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEE4018E93A6E0012D73E /* DrakkarTests-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C89DEDD118E93A3B0012D73E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEDD218E93A3B0012D73E /* Custom UI */,
+				C89DEDD518E93A3B0012D73E /* Helper */,
+				C89DEDDA18E93A3B0012D73E /* Model */,
+				C89DEDDF18E93A3B0012D73E /* MVAppDelegate.h */,
+				C89DEDE018E93A3B0012D73E /* MVAppDelegate.m */,
+				C89DEDE118E93A3B0012D73E /* Service */,
+				C89DEDEA18E93A3B0012D73E /* Views */,
+			);
+			name = Classes;
+			path = Drakkar/Classes;
+			sourceTree = SOURCE_ROOT;
+		};
+		C89DEDD218E93A3B0012D73E /* Custom UI */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEDD318E93A3B0012D73E /* MVLoginCell.h */,
+				C89DEDD418E93A3B0012D73E /* MVLoginCell.m */,
+			);
+			path = "Custom UI";
+			sourceTree = "<group>";
+		};
+		C89DEDD518E93A3B0012D73E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEDD618E93A3B0012D73E /* IIViewDeckController+Notifications.h */,
+				C89DEDD718E93A3B0012D73E /* IIViewDeckController+Notifications.m */,
+				C89DEDD818E93A3B0012D73E /* UIColor+RGB.h */,
+				C89DEDD918E93A3B0012D73E /* UIColor+RGB.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C89DEDDA18E93A3B0012D73E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEDDB18E93A3B0012D73E /* MVBalance.h */,
+				C89DEDDC18E93A3B0012D73E /* MVBalance.m */,
+				C89DEDDD18E93A3B0012D73E /* MVUserData.h */,
+				C89DEDDE18E93A3B0012D73E /* MVUserData.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C89DEDE118E93A3B0012D73E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEDE218E93A3B0012D73E /* MVBalanceService.h */,
+				C89DEDE318E93A3B0012D73E /* MVBalanceService.m */,
+				C89DEDE418E93A3B0012D73E /* MVLoginService.h */,
+				C89DEDE518E93A3B0012D73E /* MVLoginService.m */,
+				C89DEDE618E93A3B0012D73E /* MVRegisterService.h */,
+				C89DEDE718E93A3B0012D73E /* MVRegisterService.m */,
+				C89DEDE818E93A3B0012D73E /* MVTokenService.h */,
+				C89DEDE918E93A3B0012D73E /* MVTokenService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C89DEDEA18E93A3B0012D73E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEDEB18E93A3B0012D73E /* MVActivationViewController.h */,
+				C89DEDEC18E93A3B0012D73E /* MVActivationViewController.m */,
+				C89DEDED18E93A3B0012D73E /* MVActivationViewController.xib */,
+				C89DEDEE18E93A3B0012D73E /* MVBalanceViewController.h */,
+				C89DEDEF18E93A3B0012D73E /* MVBalanceViewController.m */,
+				C89DEDF018E93A3B0012D73E /* MVBalanceViewController.xib */,
+				C89DEDF118E93A3B0012D73E /* MVDisclaimerTableViewController.h */,
+				C89DEDF218E93A3B0012D73E /* MVDisclaimerTableViewController.m */,
+				C89DEDF318E93A3B0012D73E /* MVDisclaimerTableViewController.xib */,
+				C89DEDF418E93A3B0012D73E /* MVPinViewController.h */,
+				C89DEDF518E93A3B0012D73E /* MVPinViewController.m */,
+				C89DEDF618E93A3B0012D73E /* MVPinViewController.xib */,
+				C89DEDF718E93A3B0012D73E /* MVSideBarViewController.h */,
+				C89DEDF818E93A3B0012D73E /* MVSideBarViewController.m */,
+				C89DEDF918E93A3B0012D73E /* MVSideBarViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C89DEE0E18E93A4D0012D73E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEE0F18E93A4D0012D73E /* Acknowledgements.plist */,
+				C89DEE1018E93A4D0012D73E /* Fonts */,
+			);
+			name = Resources;
+			path = Drakkar/Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		C89DEE1018E93A4D0012D73E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEE1118E93A4D0012D73E /* Roboto */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C89DEE1118E93A4D0012D73E /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				C89DEE1218E93A4D0012D73E /* Apache License.txt */,
+				C89DEE1318E93A4D0012D73E /* LICENSE */,
+				C89DEE1418E93A4D0012D73E /* Roboto-Black.ttf */,
+				C89DEE1518E93A4D0012D73E /* Roboto-BlackItalic.ttf */,
+				C89DEE1618E93A4D0012D73E /* Roboto-Bold.ttf */,
+				C89DEE1718E93A4D0012D73E /* Roboto-BoldItalic.ttf */,
+				C89DEE1818E93A4D0012D73E /* Roboto-Italic.ttf */,
+				C89DEE1918E93A4D0012D73E /* Roboto-Light.ttf */,
+				C89DEE1A18E93A4D0012D73E /* Roboto-LightItalic.ttf */,
+				C89DEE1B18E93A4D0012D73E /* Roboto-Medium.ttf */,
+				C89DEE1C18E93A4D0012D73E /* Roboto-MediumItalic.ttf */,
+				C89DEE1D18E93A4D0012D73E /* Roboto-Regular.ttf */,
+				C89DEE1E18E93A4D0012D73E /* Roboto-Thin.ttf */,
+				C89DEE1F18E93A4D0012D73E /* Roboto-ThinItalic.ttf */,
+				C89DEE2018E93A4D0012D73E /* RobotoCondensed-Bold.ttf */,
+				C89DEE2118E93A4D0012D73E /* RobotoCondensed-BoldItalic.ttf */,
+				C89DEE2218E93A4D0012D73E /* RobotoCondensed-Italic.ttf */,
+				C89DEE2318E93A4D0012D73E /* RobotoCondensed-Light.ttf */,
+				C89DEE2418E93A4D0012D73E /* RobotoCondensed-LightItalic.ttf */,
+				C89DEE2518E93A4D0012D73E /* RobotoCondensed-Regular.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		62418819187F265300B3797D /* Drakkar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6241884C187F265300B3797D /* Build configuration list for PBXNativeTarget "Drakkar" */;
+			buildPhases = (
+				A158DC0F2F194814B0B3D3E7 /* Check Pods Manifest.lock */,
+				62418816187F265300B3797D /* Sources */,
+				62418817187F265300B3797D /* Frameworks */,
+				62418818187F265300B3797D /* Resources */,
+				54B8255626B14A4287DE16C0 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Drakkar;
+			productName = "Mobile Vikings";
+			productReference = 6241881A187F265300B3797D /* Drakkar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6241883A187F265300B3797D /* DrakkarTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6241884F187F265300B3797D /* Build configuration list for PBXNativeTarget "DrakkarTest" */;
+			buildPhases = (
+				62418837187F265300B3797D /* Sources */,
+				62418838187F265300B3797D /* Frameworks */,
+				62418839187F265300B3797D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				62418841187F265300B3797D /* PBXTargetDependency */,
+			);
+			name = DrakkarTest;
+			productName = "Mobile VikingsTests";
+			productReference = 6241883B187F265300B3797D /* DrakkarTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		62418812187F265200B3797D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MV;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = XS4some;
+				TargetAttributes = {
+					62418819187F265300B3797D = {
+						DevelopmentTeam = 38GDWKB44K;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+						};
+					};
+					6241883A187F265300B3797D = {
+						TestTargetID = 62418819187F265300B3797D;
+					};
+				};
+			};
+			buildConfigurationList = 62418815187F265200B3797D /* Build configuration list for PBXProject "Drakkar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 62418811187F265200B3797D;
+			productRefGroup = 6241881B187F265300B3797D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				62418819187F265300B3797D /* Drakkar */,
+				6241883A187F265300B3797D /* DrakkarTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		62418818187F265300B3797D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C89DEE3618E93A4D0012D73E /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				C89DEE2618E93A4D0012D73E /* Acknowledgements.plist in Resources */,
+				C89DEE0D18E93A3B0012D73E /* MVSideBarViewController.xib in Resources */,
+				C89DEE2F18E93A4D0012D73E /* Roboto-LightItalic.ttf in Resources */,
+				C89DEE3918E93A4D0012D73E /* RobotoCondensed-LightItalic.ttf in Resources */,
+				C89DEE3418E93A4D0012D73E /* Roboto-ThinItalic.ttf in Resources */,
+				C89DEE3A18E93A4D0012D73E /* RobotoCondensed-Regular.ttf in Resources */,
+				C89DEE3018E93A4D0012D73E /* Roboto-Medium.ttf in Resources */,
+				C89DEE2E18E93A4D0012D73E /* Roboto-Light.ttf in Resources */,
+				C89DEE2B18E93A4D0012D73E /* Roboto-Bold.ttf in Resources */,
+				C89DEE0918E93A3B0012D73E /* MVDisclaimerTableViewController.xib in Resources */,
+				C89DEE2C18E93A4D0012D73E /* Roboto-BoldItalic.ttf in Resources */,
+				C89DEE3318E93A4D0012D73E /* Roboto-Thin.ttf in Resources */,
+				C89DEE3518E93A4D0012D73E /* RobotoCondensed-Bold.ttf in Resources */,
+				C89DEE0518E93A3B0012D73E /* MVActivationViewController.xib in Resources */,
+				C89DEE0B18E93A3B0012D73E /* MVPinViewController.xib in Resources */,
+				C89DEE3818E93A4D0012D73E /* RobotoCondensed-Light.ttf in Resources */,
+				C89DEE2718E93A4D0012D73E /* Apache License.txt in Resources */,
+				C89DEE2A18E93A4D0012D73E /* Roboto-BlackItalic.ttf in Resources */,
+				C89DEE2818E93A4D0012D73E /* LICENSE in Resources */,
+				C89DEE3718E93A4D0012D73E /* RobotoCondensed-Italic.ttf in Resources */,
+				C89DEE2918E93A4D0012D73E /* Roboto-Black.ttf in Resources */,
+				C89DEE2D18E93A4D0012D73E /* Roboto-Italic.ttf in Resources */,
+				C89DEE3218E93A4D0012D73E /* Roboto-Regular.ttf in Resources */,
+				C89DEE3E18E93A580012D73E /* Drakkar-Info.plist in Resources */,
+				C89DEE4118E93A6E0012D73E /* DrakkarTests-Info.plist in Resources */,
+				C89DEE3118E93A4D0012D73E /* Roboto-MediumItalic.ttf in Resources */,
+				C89DEE0718E93A3B0012D73E /* MVBalanceViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62418839187F265300B3797D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54B8255626B14A4287DE16C0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A158DC0F2F194814B0B3D3E7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		62418816187F265300B3797D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C89DEE0218E93A3B0012D73E /* MVRegisterService.m in Sources */,
+				C89DEDFE18E93A3B0012D73E /* MVUserData.m in Sources */,
+				C89DEDFC18E93A3B0012D73E /* UIColor+RGB.m in Sources */,
+				C89DEE0418E93A3B0012D73E /* MVActivationViewController.m in Sources */,
+				C89DEE0018E93A3B0012D73E /* MVBalanceService.m in Sources */,
+				C89DEE0818E93A3B0012D73E /* MVDisclaimerTableViewController.m in Sources */,
+				C89DEE3F18E93A580012D73E /* main.m in Sources */,
+				C89DEE0318E93A3B0012D73E /* MVTokenService.m in Sources */,
+				C89DEDFD18E93A3B0012D73E /* MVBalance.m in Sources */,
+				C89DEE0118E93A3B0012D73E /* MVLoginService.m in Sources */,
+				C89DEE0A18E93A3B0012D73E /* MVPinViewController.m in Sources */,
+				C89DEDFA18E93A3B0012D73E /* MVLoginCell.m in Sources */,
+				C89DEDFB18E93A3B0012D73E /* IIViewDeckController+Notifications.m in Sources */,
+				C89DEE0C18E93A3B0012D73E /* MVSideBarViewController.m in Sources */,
+				C89DEE0618E93A3B0012D73E /* MVBalanceViewController.m in Sources */,
+				C89DEDFF18E93A3B0012D73E /* MVAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62418837187F265300B3797D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C89DEE4318E93A740012D73E /* DrakarTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		62418841187F265300B3797D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 62418819187F265300B3797D /* Drakkar */;
+			targetProxy = 62418840187F265300B3797D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6241884A187F265300B3797D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		6241884B187F265300B3797D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6241884D187F265300B3797D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2259AFAB9CE4086AD1B7158 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Drakar/Drakkar-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Drakkar/Drakkar-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = Drakkar;
+				PROVISIONING_PROFILE = "2EB0DB86-4CBD-450E-95D4-8B7A5879DD8C";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6241884E187F265300B3797D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2259AFAB9CE4086AD1B7158 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Drakar/Drakkar-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Drakkar/Drakkar-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = Drakkar;
+				PROVISIONING_PROFILE = "2EB0DB86-4CBD-450E-95D4-8B7A5879DD8C";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		62418850187F265300B3797D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Drakkar.app/Drakkar";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Drakkar/Drakkar-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Drakar/DrakkarTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		62418851187F265300B3797D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Drakkar.app/Drakkar";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Drakkar/Drakkar-Prefix.pch";
+				INFOPLIST_FILE = "Drakar/DrakkarTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		62418815187F265200B3797D /* Build configuration list for PBXProject "Drakkar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6241884A187F265300B3797D /* Debug */,
+				6241884B187F265300B3797D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6241884C187F265300B3797D /* Build configuration list for PBXNativeTarget "Drakkar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6241884D187F265300B3797D /* Debug */,
+				6241884E187F265300B3797D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6241884F187F265300B3797D /* Build configuration list for PBXNativeTarget "DrakkarTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62418850187F265300B3797D /* Debug */,
+				62418851187F265300B3797D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 62418812187F265200B3797D /* Project object */;
+}

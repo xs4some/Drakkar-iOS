@@ -11,7 +11,7 @@ build/
 !default.perspectivev3
 *.xcworkspace
 !default.xcworkspace
-!Drakar.xcworkspace
+!Drakkar.xcworkspace
 !.xcworkspace
 xcuserdata
 profile
